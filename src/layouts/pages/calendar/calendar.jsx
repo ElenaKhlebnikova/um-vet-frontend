@@ -66,6 +66,20 @@ function App() {
 
     fetchFunction();
   }, []);
+
+  const checkUnavailability = function (day, h, firstWeek) {
+    if (firstWeek === true) {
+      const appointment = data
+        .filter((date) => date.date === day[0].toDateString())
+        .filter((date) => date.startTime === h).length;
+      return appointment;
+    }
+    const appointment = data
+      .filter((date) => date.date === day.toDateString())
+      .filter((date) => date.startTime === h).length;
+
+    return appointment;
+  };
   return (
     <>
       <Header />
@@ -87,10 +101,6 @@ function App() {
           setDoctor(e.target.value);
         }}
       >
-        {/* I know you are planning on fixing this, but this is just a meow reminder
-                    You should not have IDs like this defined here,
-                    you need to fetch all the doctors and use their IDs and not hardcoded IDs
-                */}
         <option value="">Chose a doctor</option>
         {doctors.map((doctor) => (
           <option value={doctor._id}>{doctor.name}</option>
@@ -112,17 +122,18 @@ function App() {
     I think the solution could be to rewrite the function which gives you the values for the dates
 */}
         <div className={styles.bodyOfTheTable}>
-          <div>
-            <div>{mon.length !== 0 ? mon[0].toDateString() : ""}</div>
+          <div className={mon.length !== 0 && styles.dateContainer}>
+            <div>
+              {mon.length !== 0 ? mon[0].toDateString().slice(3, -4) : ""}
+            </div>
             <div className={styles.hoursContainer}>
               {mon.length !== 0 &&
                 workingHours.map((h) => (
                   <button
+                    disabled={checkUnavailability(mon, h, true) && true}
                     type="button"
                     className={
-                      data
-                        .filter((date) => date.date === mon[0].toDateString())
-                        .filter((date) => date.startTime === h).length === 0
+                      !checkUnavailability(mon, h, true)
                         ? `${styles.available}`
                         : `${styles.notAvailable}`
                     }
@@ -137,17 +148,18 @@ function App() {
                 ))}
             </div>
           </div>
-          <div>
-            <div>{tue.length !== 0 ? tue[0].toDateString() : ""}</div>
+          <div className={tue.length !== 0 && styles.dateContainer}>
+            <div>
+              {tue.length !== 0 ? tue[0].toDateString().slice(3, -4) : ""}
+            </div>
             <div className={styles.hoursContainer}>
               {tue.length !== 0 &&
                 workingHours.map((h) => (
                   <button
+                    disabled={checkUnavailability(thu, h, true) && true}
                     type="button"
                     className={
-                      data
-                        .filter((date) => date.date === tue[0].toDateString())
-                        .filter((date) => date.startTime === h).length === 0
+                      !checkUnavailability(tue, h, true)
                         ? `${styles.available}`
                         : `${styles.notAvailable}`
                     }
@@ -162,17 +174,16 @@ function App() {
                 ))}
             </div>
           </div>
-          <div>
-            <div>{wed.length ? wed[0].toDateString() : ""}</div>
+          <div className={wed.length !== 0 && styles.dateContainer}>
+            <div>{wed.length ? wed[0].toDateString().slice(3, -4) : ""}</div>
             <div className={styles.hoursContainer}>
               {wed.length !== 0 &&
                 workingHours.map((h) => (
                   <button
+                    disabled={checkUnavailability(wed, h, true) && true}
                     type="button"
                     className={
-                      data
-                        .filter((date) => date.date === wed[0].toDateString())
-                        .filter((date) => date.startTime === h).length === 0
+                      !checkUnavailability(wed, h, true)
                         ? `${styles.available}`
                         : `${styles.notAvailable}`
                     }
@@ -188,17 +199,16 @@ function App() {
                 ))}
             </div>
           </div>
-          <div>
-            <div>{thu.length ? thu[0].toDateString() : ""}</div>
+          <div className={thu.length !== 0 && styles.dateContainer}>
+            <div>{thu.length ? thu[0].toDateString().slice(3, -4) : ""}</div>
             <div className={styles.hoursContainer}>
               {thu.length !== 0 &&
                 workingHours.map((h) => (
                   <button
+                    disabled={checkUnavailability(thu, h, true) && true}
                     type="button"
                     className={
-                      data
-                        .filter((date) => date.date === thu[0].toDateString())
-                        .filter((date) => date.startTime === h).length === 0
+                      !checkUnavailability(thu, h, true)
                         ? `${styles.available}`
                         : `${styles.notAvailable}`
                     }
@@ -214,17 +224,16 @@ function App() {
                 ))}
             </div>
           </div>
-          <div>
-            <div>{fri.length ? fri[0].toDateString() : " "}</div>
+          <div className={fri.length !== 0 && styles.dateContainer}>
+            <div>{fri.length ? fri[0].toDateString().slice(3, -4) : " "}</div>
             <div className={styles.hoursContainer}>
               {fri.length !== 0 &&
                 workingHours.map((h) => (
                   <button
+                    disabled={checkUnavailability(fri, h, true) && true}
                     type="button"
                     className={
-                      data
-                        .filter((date) => date.date === fri[0].toDateString())
-                        .filter((date) => date.startTime === h).length === 0
+                      !checkUnavailability(fri, h, true)
                         ? `${styles.available}`
                         : `${styles.notAvailable}`
                     }
@@ -241,22 +250,20 @@ function App() {
           </div>
 
           {nextWeeks.map((day) => (
-            <div>
-              <div>{day.toDateString()}</div>
+            <div className={styles.dateContainer}>
+              <div>{day.toDateString().slice(3, -4)}</div>
               <div className={styles.hoursContainer}>
                 {workingHours.map((h) => (
                   <button
+                    disabled={checkUnavailability(day, h, false) && true}
                     type="button"
                     className={
-                      data
-                        .filter((date) => date.date === day.toDateString())
-                        .filter((date) => date.startTime === h).length === 0
+                      !checkUnavailability(day, h, false)
                         ? `${styles.available}`
                         : `${styles.notAvailable}`
                     }
                     onClick={() => {
                       setShown(true);
-
                       setDate(day);
                       setHour(h);
                     }}

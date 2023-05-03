@@ -1,7 +1,11 @@
 /* eslint-disable linebreak-style */
 import React from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  useParams,
+} from "react-router-dom";
 
 import Landing from "./layouts/landing/landing";
 import Calendar from "./layouts/pages/calendar/calendar";

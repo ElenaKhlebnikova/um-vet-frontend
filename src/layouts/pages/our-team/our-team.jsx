@@ -1,7 +1,10 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/style-prop-object */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable import/no-useless-path-segments */
 import React, { useEffect, useState } from "react";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Link } from "react-router-dom";
 import styles from "./our-team.module.css";
 import Header from "../../header/header";
 
@@ -50,7 +53,7 @@ function OurTeam() {
                 </li>
               </ul>
               <button type="button" className={styles.btn}>
-                Book an appointment
+                <Link to=":doctorId">Book an appointment</Link>
               </button>
             </div>
           </div>
