@@ -1,0 +1,31 @@
+.btn_orange {
+  background-color: #ddb582;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  width: 35rem;
+  height: 8rem;
+  font-size: 2.5rem;
+  transition: all ease-in 0.5s;
+}
+
+.btn-orange:hover {
+  background-color: #e7cba8;
+  cursor: pointer;
+}
+
+.btn_blue {
+  background-color: #01b2c1;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  width: 35rem;
+  height: 8rem;
+  font-size: 2.5rem;
+  transition: all ease-in 0.5s;
+}
+
+.btn_blue:hover {
+  background-color: #67d1da;
+  cursor: pointer;
+}

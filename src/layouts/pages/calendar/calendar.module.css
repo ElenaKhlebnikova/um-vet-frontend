@@ -1,0 +1,89 @@
+.form {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  z-index: 1;
+  background-color: orchid;
+  padding: 10rem;
+}
+
+.close {
+  position: absolute;
+  top: 20%;
+  left: 80%;
+  z-index: 2;
+}
+
+.notAvailable {
+  background-color: #018e9a;
+  color: white;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 2rem;
+}
+
+.notAvailable:hover {
+  cursor: not-allowed;
+  background-color: #c0dfe1;
+  transition: all 0.2s;
+}
+
+.available {
+  background-color: #d2f0f3;
+  color: #36454f;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 2rem;
+}
+
+.available:hover {
+  cursor: pointer;
+}
+.hoursContainer {
+  margin: 1rem 0.5rem 3rem 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.calendarMainContainer {
+  display: grid;
+  grid-template-rows: 1fr;
+  margin: 10rem;
+}
+
+.headOfTheTable {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  font-size: 2.5rem;
+  font-weight: 700;
+  justify-items: center;
+  margin: 2rem;
+}
+
+.bodyOfTheTable {
+  display: grid;
+  font-size: 2rem;
+  font-weight: 400;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  margin: 3rem;
+}
+
+.mon {
+  grid-column: 1/2;
+}
+.tue {
+  grid-column: 2/3;
+}
+
+.wed {
+  grid-column: 3/4;
+}
+
+.thu {
+  grid-column: 4/5;
+}
+
+.fri {
+  grid-column: 5/6;
+}

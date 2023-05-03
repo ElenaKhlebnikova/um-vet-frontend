@@ -1,0 +1,49 @@
+.mainContainer {
+  width: 80%;
+  margin-top: 10rem;
+  margin-left: 10rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.doctorsContainer {
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+  margin: 2rem;
+  line-height: 2;
+}
+
+.doctorsContainer:nth-child(3) {
+  border-top: 2px solid #e7cba8;
+}
+.doctorsContainer:nth-child(4) {
+  border-top: 2px solid #e7cba8;
+}
+
+.doctorsInfo {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  color: #36454f;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+.btn {
+  font-size: 2.5rem;
+  border: none;
+  background-color: none;
+  color: #ddb582;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  cursor: pointer;
+  color: #e7cba8;
+}
+img {
+  height: 20rem;
+  border-radius: 3px;
+}

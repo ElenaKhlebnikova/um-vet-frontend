@@ -1,0 +1,23 @@
+.dropdown_container {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+.select {
+  color: #fff;
+  font-size: inherit;
+  background-color: #ddb582;
+  border: 0.2rem solid #ddb582;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.select:focus {
+  border: 0.2rem solid #fff;
+}
+
+.select:hover {
+  cursor: pointer;
+}

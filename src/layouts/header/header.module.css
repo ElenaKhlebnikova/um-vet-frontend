@@ -1,0 +1,52 @@
+.header_container {
+  width: 100%;
+  height: fit-content;
+  padding: 1rem 0 1rem 0;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  background-color: #01b2c1;
+  font-size: 2.5rem;
+  color: #fff;
+  -webkit-box-shadow: -8px 13px 41px -9px rgba(186, 195, 202, 0.8);
+  -moz-box-shadow: -8px 13px 41px -9px rgba(186, 195, 202, 0.8);
+  box-shadow: -8px 13px 41px -9px rgba(186, 195, 202, 0.8);
+}
+
+.btn_and_user_container {
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.user_container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: all ease-in 0.5s;
+}
+
+.logo {
+  height: 10rem;
+  margin-left: 5rem;
+}
+
+.menu_item_container {
+  transition: all ease-in 0.5s;
+}
+.menu_item_container:hover {
+  cursor: pointer;
+  color: #ddd;
+}
+
+.user:first-child {
+  border-right: 0.2rem solid #fff;
+}
+.user {
+  padding: 0 2rem 0rem 2rem;
+}
+.user:hover {
+  cursor: pointer;
+  color: #ddd;
+}
