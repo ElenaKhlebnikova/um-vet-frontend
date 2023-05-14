@@ -1,8 +1,76 @@
+.formContainer {
+  position: fixed;
+  top: 0%;
+  height: 100vh;
+  width: 100vw;
+  background-color: #36454fc3;
+  overflow-x: hidden;
+}
 .form {
-  position: absolute;
-  top: 20%;
-  left: 20%;
+  position: fixed;
+  top: 2%;
+  left: 7%;
   z-index: 1;
-  background-color: orchid;
-  padding: 10rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 10rem 30rem;
+  overflow: none;
+  font-size: 2.5rem;
+  color: #36454f;
+  width: 50%;
+}
+
+.btn {
+  background-color: #01b2c1;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  width: 20rem;
+  height: 4.5rem;
+  font-size: 2.5rem;
+  transition: all ease-in 0.5s;
+}
+
+.btn:hover {
+  background-color: #67d1da;
+  cursor: pointer;
+}
+
+.formItem {
+  margin-bottom: 3rem;
+}
+
+.select {
+  color: #36454f;
+  font-size: inherit;
+  background-color: #d2f0f3;
+  border: 0.2rem solid #d2f0f3;
+  width: 25%;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+}
+
+.select:focus {
+  border: 0.2rem solid #fff;
+}
+
+.select:hover {
+  cursor: pointer;
+}
+
+.options:hover {
+  cursor: pointer;
+  color: #d2f0f3;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input:focus {
+  border: #36454f;
 }

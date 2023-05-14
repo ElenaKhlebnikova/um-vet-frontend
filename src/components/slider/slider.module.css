@@ -10,6 +10,16 @@
   color: #67d1da;
   height: 5rem;
 }
+
+.icon_blue_dark:hover {
+  cursor: pointer;
+}
+.icon_blue_mid:hover {
+  cursor: pointer;
+}
+.icon_blue_light:hover {
+  cursor: pointer;
+}
 .container {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;

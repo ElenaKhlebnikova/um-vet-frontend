@@ -4,6 +4,7 @@ import landingImg from "../../assets/pictures/MainPicture.jpeg";
 import Button from "../../components/reusable_components/button/button";
 import Slider from "../../components/slider/slider";
 import Header from "../header/header";
+import Footer from "../footer/footer";
 
 function Landing() {
   return (
@@ -27,6 +28,7 @@ function Landing() {
         </div>
       </div>
       <Slider />
+      <Footer />
     </>
   );
 }

@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./slides.module.css";
-import buildingImg from "../../../assets/pictures/building.jpg";
+import buildingImg from "../../../assets/pictures/building.png";
 
 function FirstSlide() {
   return (

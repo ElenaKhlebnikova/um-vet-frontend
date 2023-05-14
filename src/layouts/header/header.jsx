@@ -13,18 +13,26 @@ function Header() {
 
   return (
     <div className={styles.header_container}>
-      <div className={styles.logo_container}>
-        <img className={styles.logo} src={Logo} alt="UmVet logo" />
-      </div>
+      <Link to="/">
+        <div className={styles.logo_container}>
+          <img className={styles.logo} src={Logo} alt="UmVet logo" />
+        </div>
+      </Link>
       <Link to="/appointments">
         <div className={styles.menu_item_container}>Make an appointment</div>
       </Link>
-      <div className={styles.menu_item_container}>Service and price</div>
-      <div className={styles.menu_item_container}>For patients</div>
+      <Link to="/service-and-price">
+        <div className={styles.menu_item_container}>Service and price</div>
+      </Link>
+      <Link to="/blog">
+        <div className={styles.menu_item_container}>For patients</div>
+      </Link>
       <Link to="/our-team">
         <div className={styles.menu_item_container}>Our team</div>
       </Link>
-      <div className={styles.menu_item_container}>Contacts</div>
+      <Link to="/contacts">
+        <div className={styles.menu_item_container}>Contacts</div>
+      </Link>
       <div className={styles.btn_and_user_container}>
         <div className={styles.user_container}>
           <div className={styles.user}>Log in</div>

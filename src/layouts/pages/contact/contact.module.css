@@ -1,0 +1,32 @@
+.mapContainer {
+  height: 50rem;
+  width: 100%;
+  display: grid;
+}
+
+.mainContainer {
+  margin: 10rem 5rem;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  column-gap: 2.5rem;
+}
+
+.listItem {
+  margin-top: 2rem;
+}
+
+.contactInformation {
+  width: 100%;
+  color: #36454f;
+  font-size: 2rem;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+}
+
+.icon {
+  color: #69aaae;
+  height: 2rem;
+  margin-right: 0.5rem;
+  align-self: center;
+}

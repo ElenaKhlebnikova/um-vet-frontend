@@ -8,12 +8,16 @@
 }
 
 .close {
-  position: absolute;
+  position: fixed;
   top: 20%;
   left: 80%;
   z-index: 2;
+  transition: all 0.2s;
 }
 
+.close:hover {
+  cursor: pointer;
+}
 .dateContainer {
   text-align: center;
   border: 2px solid #d2f0f3;
@@ -31,8 +35,6 @@
 
 .notAvailable:hover {
   cursor: not-allowed;
-  background-color: #c0dfe1;
-  transition: all 0.2s;
 }
 
 .available {
@@ -41,10 +43,12 @@
   padding: 1rem;
   margin: 1rem;
   font-size: 2rem;
+  transition: all 0.2s;
 }
 
 .available:hover {
   cursor: pointer;
+  background-color: #c0dfe1;
 }
 .hoursContainer {
   margin: 1rem 0.5rem 3rem 0.5rem;
@@ -93,4 +97,46 @@
 
 .fri {
   grid-column: 5/6;
+}
+
+.dropdown_container {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+.selectContainer {
+  display: flex;
+  align-items: center;
+  margin: 10rem 0 5rem 5rem;
+}
+
+.spanDoctor {
+  color: #36454f;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-right: 2rem;
+}
+.select {
+  color: #36454f;
+  font-size: inherit;
+  background-color: #d2f0f3;
+  border: 0.2rem solid #d2f0f3;
+  width: 25%;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+}
+
+.select:focus {
+  border: 0.2rem solid #fff;
+}
+
+.select:hover {
+  cursor: pointer;
+}
+
+.options:hover {
+  cursor: pointer;
+  color: #d2f0f3;
 }

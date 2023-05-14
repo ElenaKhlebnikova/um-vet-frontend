@@ -15,3 +15,8 @@ html {
   font-size: 62.5%;
   color: #36454f;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

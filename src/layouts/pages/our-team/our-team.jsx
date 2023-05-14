@@ -1,3 +1,5 @@
+/* eslint-disable quotes */
+/* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/style-prop-object */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -7,6 +9,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./our-team.module.css";
 import Header from "../../header/header";
+import Footer from "../../footer/footer";
 
 function OurTeam() {
   const [doctors, setDoctors] = useState([]);
@@ -53,12 +56,18 @@ function OurTeam() {
                 </li>
               </ul>
               <button type="button" className={styles.btn}>
-                <Link to=":doctorId">Book an appointment</Link>
+                <Link to={`/${doctor._id}/appointments`}>
+                  Book an appointment
+                </Link>
+              </button>
+              <button type="button" className={styles.btnLearnMore}>
+                <Link to={`/${doctor._id}/comments`}>Learn More &rarr;</Link>
               </button>
             </div>
           </div>
         ))}
       </div>
+      <Footer />
     </>
   );
 }
