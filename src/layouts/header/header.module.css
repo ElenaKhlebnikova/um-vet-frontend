@@ -6,7 +6,7 @@
   justify-items: center;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  background-color: #01b2c1;
+  background-color: #8ccad0;
   font-size: 2rem;
   color: #fff;
   -webkit-box-shadow: -8px 13px 41px -9px rgba(186, 195, 202, 0.8);
@@ -29,7 +29,6 @@
 
 .logo {
   height: 10rem;
-  margin-left: 5rem;
 }
 
 .menu_item_container {

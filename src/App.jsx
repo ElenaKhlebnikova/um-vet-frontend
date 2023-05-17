@@ -11,6 +11,7 @@ import ServiceAndPrice from "./layouts/pages/service-and-prices/service-and-pric
 import CommentsPage from "./layouts/pages/our-team/comments-page/comments-page";
 import Contact from "./layouts/pages/contact/contact";
 import Blog from "./layouts/pages/blog/blog";
+import Post from "./layouts/pages/blog/post";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
   {
     path: "/blog",
     element: <Blog />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/blog/:postId",
+    element: <Post />,
     errorElement: <ErrorPage />,
   },
 ]);

@@ -1,0 +1,42 @@
+.postContainer {
+  margin: 10rem 10rem;
+}
+
+.generalInfoContainer {
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  margin: 10rem 10rem;
+  color: #fff;
+  justify-content: space-between;
+}
+.date {
+  font-size: 2rem;
+  font-weight: 700;
+  align-self: end;
+  margin: 5rem 5rem;
+}
+
+.title {
+  font-size: 5rem;
+  margin: 5rem 5rem;
+}
+
+.contentContainer {
+  margin: 5rem 10rem;
+  font-size: 2rem;
+}
+
+.backBtn {
+  margin-top: 5rem;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #01b2c1;
+  transition: all 0.2s;
+}
+
+.backBtn:hover {
+  cursor: pointer;
+  color: #67d1da;
+}

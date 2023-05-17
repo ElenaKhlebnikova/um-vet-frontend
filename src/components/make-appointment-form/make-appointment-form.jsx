@@ -3,12 +3,13 @@
 import { React, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styles from "./make-appointment-form.module.css";
+import ErrorMesssage from "../reusable_components/error-message/error-message";
 
 // make sure to add prop-types for all props of each component
 function AppointmentForm({ doctor, hour, date }) {
   const [name, setName] = useState("");
   const [procedure, setProcedure] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState(0);
 
   // eslint-disable-next-line func-names
   const [serviceAndPrice, setServiceAndPrice] = useState([]);
@@ -63,6 +64,7 @@ function AppointmentForm({ doctor, hour, date }) {
                 placeholder="Please enter your name"
               />
             </label>
+            <ErrorMesssage name={name} field="name" />
           </div>
           <div className={styles.formItem}>
             <label>
@@ -72,6 +74,7 @@ function AppointmentForm({ doctor, hour, date }) {
                 placeholder="Please enter your phone"
                 onChange={(e) => setPhone(e.target.value)}
               />
+              <ErrorMesssage phone={phone} field="phone" />
             </label>
           </div>
           <div className={styles.formItem}>

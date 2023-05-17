@@ -36,33 +36,26 @@ function OurTeam() {
   return (
     <>
       <Header />
+
       <div className={styles.mainContainer}>
         {doctors.map((doctor) => (
           <div className={styles.doctorsContainer}>
-            <img
-              src={`data:image/jpeg;base64,${doctor.img}`}
-              alt={doctor.name}
-            />
+            <img src={doctor.img} alt={doctor.name} />
             <div className={styles.doctorsInfo}>
-              <ul>
-                <li style={{ fontWeight: 700 }}>{doctor.name}</li>
-                <li>
-                  <span style={{ fontWeight: 700 }}>Education:</span>
-                  {doctor.education}
-                </li>
-                <li>
-                  <span style={{ fontWeight: 700 }}>Specialization:</span>
-                  {doctor.specialization}
-                </li>
-              </ul>
-              <button type="button" className={styles.btn}>
-                <Link to={`/${doctor._id}/appointments`}>
-                  Book an appointment
-                </Link>
-              </button>
-              <button type="button" className={styles.btnLearnMore}>
-                <Link to={`/${doctor._id}/comments`}>Learn More &rarr;</Link>
-              </button>
+              <div className={styles.doctorName}>{doctor.name}</div>
+              <div>{doctor.specialization}</div>
+              <div>
+                <button type="button" className={styles.btn}>
+                  <Link to={`/${doctor._id}/appointments`}>
+                    Book an appointment
+                  </Link>
+                </button>
+              </div>
+              <div className={styles.btnLearnMore}>
+                <button type="button">
+                  <Link to={`/${doctor._id}/comments`}>Learn More &rarr;</Link>
+                </button>
+              </div>
             </div>
           </div>
         ))}

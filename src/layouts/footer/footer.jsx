@@ -33,15 +33,14 @@ function Footer() {
             &nbsp; by Elena Khlebnikova
           </div>
         </div>
-
         <div className={styles.iconLinksContainer}>
           <FontAwesomeIcon
             icon={faGithub}
-            style={{ color: "#f5f5f5", height: "10rem" }}
+            style={{ color: "#f5f5f5", height: "5rem" }}
           />
           <FontAwesomeIcon
             icon={faLinkedin}
-            style={{ color: "#f5f5f5", height: "10rem" }}
+            style={{ color: "#f5f5f5", height: "5rem" }}
           />
         </div>
       </div>

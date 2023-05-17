@@ -34,10 +34,6 @@ function Header() {
         <div className={styles.menu_item_container}>Contacts</div>
       </Link>
       <div className={styles.btn_and_user_container}>
-        <div className={styles.user_container}>
-          <div className={styles.user}>Log in</div>
-          <div className={styles.user}>Sign up</div>
-        </div>
         <Dropdown options={languages} />
       </div>
     </div>

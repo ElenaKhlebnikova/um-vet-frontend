@@ -2,6 +2,7 @@ Main colours:
 
 ## Teal
 
+#8ccad0
 Dark: #018e9a
 Main: #01b2c1
 Light: #67d1da
