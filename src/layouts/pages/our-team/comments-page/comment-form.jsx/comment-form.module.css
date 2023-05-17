@@ -25,11 +25,27 @@
   align-self: flex-end;
 }
 
+.btnSendInvalid {
+  background-color: #f57f95;
+  color: #fff;
+  margin-top: 5rem;
+  border: none;
+  border-radius: 0.5rem;
+  width: 10rem;
+  height: 5rem;
+  font-size: 2rem;
+  transition: all ease-in 0.5s;
+  align-self: flex-end;
+}
+
 .btnSend:hover {
   background-color: #67d1da;
   cursor: pointer;
 }
 
+.btnSendInvalid:hover {
+  cursor: not-allowed;
+}
 .form {
   display: flex;
   flex-direction: column;

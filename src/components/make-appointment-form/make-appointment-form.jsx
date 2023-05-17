@@ -1,9 +1,10 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { React, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styles from "./make-appointment-form.module.css";
-import ErrorMesssage from "../reusable_components/error-message/error-message";
+import useValidate from "../../hooks/useValidate";
 
 // make sure to add prop-types for all props of each component
 function AppointmentForm({ doctor, hour, date }) {
@@ -13,6 +14,13 @@ function AppointmentForm({ doctor, hour, date }) {
 
   // eslint-disable-next-line func-names
   const [serviceAndPrice, setServiceAndPrice] = useState([]);
+  const { messageName, messagePhone, invalid } = useValidate(
+    name,
+    "",
+    phone,
+    0
+  );
+
   useEffect(() => {
     const fetchFunction = async function () {
       await fetch("http://localhost:5000/service-and-prices", {
@@ -64,7 +72,9 @@ function AppointmentForm({ doctor, hour, date }) {
                 placeholder="Please enter your name"
               />
             </label>
-            <ErrorMesssage name={name} field="name" />
+            <span style={{ color: "#f57f95", fontSize: "1.5rem" }}>
+              {messageName}
+            </span>
           </div>
           <div className={styles.formItem}>
             <label>
@@ -74,7 +84,9 @@ function AppointmentForm({ doctor, hour, date }) {
                 placeholder="Please enter your phone"
                 onChange={(e) => setPhone(e.target.value)}
               />
-              <ErrorMesssage phone={phone} field="phone" />
+              <span style={{ color: "#f57f95", fontSize: "1.5rem" }}>
+                {messagePhone}
+              </span>
             </label>
           </div>
           <div className={styles.formItem}>
@@ -92,7 +104,8 @@ function AppointmentForm({ doctor, hour, date }) {
           <button
             type="submit"
             value="submit"
-            className={styles.btn}
+            className={invalid ? styles.btnSendInvalid : styles.btnSend}
+            disabled={invalid}
             onClick={(e) => submitFormAndMakeAnAppointment(e)}
           >
             Confirm

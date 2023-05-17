@@ -1,10 +1,14 @@
+/* eslint-disable operator-linebreak */
+/* eslint-disable comma-dangle */
+/* eslint-disable object-curly-newline */
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router";
 import styles from "./comment-form.module.css";
-import ErrorMesssage from "../../../../../components/reusable_components/error-message/error-message";
+import useValidate from "../../../../../hooks/useValidate";
 
 function CommentForm() {
   const [comment, setComment] = useState("");
@@ -12,6 +16,17 @@ function CommentForm() {
   const [rating, setRating] = useState(0);
   const doctorId = useParams();
   const date = new Date(Date.now()).toDateString();
+
+  // passing 0 instead of phone number because phone number is not used in this form
+
+  const { messageName, messageComment, messageRating, invalid } = useValidate(
+    name,
+    comment,
+    0,
+    rating
+  );
+
+  console.log(invalid);
 
   const submitAComment = async function (e) {
     e.preventDefault();
@@ -30,6 +45,7 @@ function CommentForm() {
       }),
     });
   };
+
   return (
     <div className={styles.commentContainer}>
       <form className={styles.form}>
@@ -43,12 +59,9 @@ function CommentForm() {
               placeholder="Please enter your name"
             />
           </label>
-          <ErrorMesssage
-            name={name}
-            comment={comment}
-            rating={rating}
-            field="name"
-          />
+          <span style={{ color: "#f57f95", fontSize: "1.5rem" }}>
+            {messageName}
+          </span>
         </div>
         <div className={styles.formItem}>
           <label>
@@ -61,12 +74,9 @@ function CommentForm() {
               }}
             />
           </label>
-          <ErrorMesssage
-            name={name}
-            comment={comment}
-            rating={rating}
-            field="comment"
-          />
+          <span style={{ color: "#f57f95", fontSize: "1.5rem" }}>
+            {messageComment}
+          </span>
         </div>
         <div className={styles.rating}>
           <div>
@@ -112,18 +122,15 @@ function CommentForm() {
             </button>
           </div>
           <div style={{ margin: "2rem 2rem" }}>
-            <ErrorMesssage
-              name={name}
-              comment={comment}
-              rating={rating}
-              field="rating"
-            />
+            <span style={{ color: "#f57f95", fontSize: "1.5rem" }}>
+              {messageRating}
+            </span>
           </div>
         </div>
 
         <button
-          className={styles.btnSend}
-          // disabled={}
+          className={invalid ? styles.btnSendInvalid : styles.btnSend}
+          disabled={invalid}
           type="submit"
           value="submit"
           onClick={(e) => submitAComment(e)}
