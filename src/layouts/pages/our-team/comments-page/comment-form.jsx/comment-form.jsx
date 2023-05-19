@@ -9,6 +9,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router";
 import styles from "./comment-form.module.css";
 import useValidate from "../../../../../hooks/useValidate";
+import usePost from "../../../../../hooks/usePost";
 
 function CommentForm() {
   const [comment, setComment] = useState("");
@@ -31,18 +32,12 @@ function CommentForm() {
   const submitAComment = async function (e) {
     e.preventDefault();
 
-    await fetch("http://localhost:5000/comments", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        doctorId: doctorId.doctorId,
-        name,
-        date,
-        comment,
-        rating,
-      }),
+    usePost("comments", {
+      doctorId: doctorId.doctorId,
+      name,
+      date,
+      comment,
+      rating,
     });
   };
 

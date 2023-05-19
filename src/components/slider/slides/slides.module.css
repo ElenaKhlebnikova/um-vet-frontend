@@ -5,6 +5,11 @@
     both;
   animation: slide-in-blurred-bl 0.7s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
+
+.info_container {
+  display: flex;
+  flex-direction: column;
+}
 .first_slide_pic {
   height: 50rem;
   clip-path: circle(64.3% at 32% 20%);
@@ -18,33 +23,45 @@
   clip-path: circle(64.3% at 32% 20%);
 }
 .pic_container_first_slide {
-  background-color: #018e9a;
+  background-color: #70a2a6;
   clip-path: circle(64.3% at 36% 28%);
 }
 .pic_container_second_slide {
-  background-color: #01b2c1;
+  background-color: #8ccad0;
   clip-path: circle(53.9% at 63% 40%);
 }
 .pic_container_third_slide {
-  background-color: #67d1da;
+  background-color: #afdade;
   clip-path: circle(64.3% at 36% 28%);
 }
 .heading {
-  font-size: 5rem;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.btnContainer {
+  align-self: flex-end;
 }
 .btn {
   margin: 3rem 0 0 10rem;
+  color: #70a2a6;
+  font-size: 2.5rem;
+  font-weight: 700;
+
+  transition: all 0.2s;
 }
-.btn_third_slide {
-  margin: 10rem 0 0rem 45rem;
+.btn:hover {
+  cursor: pointer;
+  color: #afdade;
 }
+
 .text {
   font-size: 2rem;
   line-height: 2;
 }
 
 .icon {
-  color: #018e9a;
+  color: #70a2a6;
   height: 2.5rem;
   margin-right: 0.5rem;
   align-self: center;
@@ -54,6 +71,8 @@ li {
 }
 .info_container_third {
   margin-left: 10rem;
+  display: flex;
+  flex-direction: column;
 }
 @-webkit-keyframes slide-in-blurred-bl {
   0% {

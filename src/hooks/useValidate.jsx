@@ -44,25 +44,26 @@ const useValidate = function (name, comment, phone, rating) {
       : setMessagePhone("");
 
     // validating the comment form
-
-    nameValue !== undefined &&
-    nameValue.length < 100 &&
-    nameValue.length >= 3 &&
-    commentValue !== undefined &&
-    commentValue.length >= 10 &&
-    commentValue.length < 1000 &&
-    ratingValue !== 0
-      ? setInvalid(false)
-      : setInvalid(true);
-
-    // validating the appointment form
-    nameValue !== undefined &&
-    nameValue.length < 100 &&
-    nameValue.length >= 3 &&
-    phoneValue > 10000000000 &&
-    phoneValue < 99999999999
-      ? setInvalid(false)
-      : setInvalid(true);
+    if (phoneValue === 0) {
+      nameValue !== undefined &&
+      nameValue.length < 100 &&
+      nameValue.length >= 3 &&
+      commentValue !== undefined &&
+      commentValue.length >= 10 &&
+      commentValue.length < 1000 &&
+      ratingValue > 0
+        ? setInvalid(false)
+        : setInvalid(true);
+    } else {
+      // validating the appointment form
+      nameValue !== undefined &&
+      nameValue.length < 100 &&
+      nameValue.length >= 3 &&
+      phoneValue > 10000000000 &&
+      phoneValue < 99999999999
+        ? setInvalid(false)
+        : setInvalid(true);
+    }
 
     return [messageName, messageComment, messagePhone, messageRating, invalid];
   };

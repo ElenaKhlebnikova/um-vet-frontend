@@ -1,11 +1,10 @@
+/* eslint-disable consistent-return */
 /* eslint-disable operator-linebreak */
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable quotes */
-/* eslint-disable no-shadow */
 /* eslint-disable func-names */
-// /* eslint-disable no-lone-blocks */
-// // /* eslint-disable no-lone-blocks */
-import { React, useEffect, useState } from "react";
+/* eslint-disable no-shadow */
+/* eslint-disable prefer-destructuring */
+import { React, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router";
@@ -18,6 +17,7 @@ import styles from "./calendar.module.css";
 import AppointmentForm from "../../../components/make-appointment-form/make-appointment-form";
 import Header from "../../header/header";
 import Footer from "../../footer/footer";
+import useFetch from "../../../hooks/useFetch";
 
 const mon = firstWeek.filter((day) => day.toDateString().startsWith("Mon"));
 const tue = firstWeek.filter((day) => day.toDateString().startsWith("Tue"));
@@ -30,49 +30,13 @@ function App() {
   const [date, setDate] = useState("");
   const [hour, setHour] = useState("");
   const [doctor, setDoctor] = useState("");
-  const [data, setData] = useState([]);
-  const [doctors, setDoctors] = useState([]);
   const { doctorId } = useParams();
 
-  useEffect(() => {
-    const fetchFunction = async function () {
-      await fetch(`http://localhost:5000/appointments?doctorId=${doctor}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.data !== undefined) {
-            setData(data.data.doctorsAppointments);
-          }
-        });
-    };
+  const fetchedDoctors = useFetch("doctors");
+  const doctors = fetchedDoctors.doctors;
 
-    fetchFunction();
-  }, [doctor, doctorId]);
-
-  useEffect(() => {
-    const fetchFunction = async function () {
-      await fetch(`http://localhost:5000/doctors`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.data !== undefined) {
-            setDoctors(data.data.doctors);
-          }
-        });
-    };
-    if (doctorId) {
-      setDoctor(doctorId);
-    }
-    fetchFunction();
-  }, []);
+  const fetchedAppointmentsData = useFetch("appointments", "doctorId", doctor);
+  const data = fetchedAppointmentsData.doctorsAppointments;
 
   const checkUnavailability = function (day, h, firstWeek) {
     if (firstWeek === true) {
@@ -81,11 +45,13 @@ function App() {
         .filter((date) => date.startTime === h).length;
       return appointment;
     }
-    const appointment = data
-      .filter((date) => date.date === day.toDateString())
-      .filter((date) => date.startTime === h).length;
 
-    return appointment;
+    if (firstWeek === false) {
+      const appointment = data
+        .filter((date) => date.date === day.toDateString())
+        .filter((date) => date.startTime === h).length;
+      return appointment;
+    }
   };
   return (
     <>
@@ -118,15 +84,16 @@ function App() {
             <option className={styles.options} value="">
               Chose a doctor
             </option>
-            {doctors.map((doctor) => (
-              <option
-                className={styles.options}
-                selected={doctorId === doctor._id}
-                value={doctor._id}
-              >
-                {doctor.name}
-              </option>
-            ))}
+            {doctors !== undefined &&
+              doctors.map((doctor) => (
+                <option
+                  className={styles.options}
+                  selected={doctorId === doctor._id}
+                  value={doctor._id}
+                >
+                  {doctor.name}
+                </option>
+              ))}
           </select>
         </div>
 
@@ -153,8 +120,8 @@ function App() {
                         type="button"
                         className={
                           !checkUnavailability(mon, h, true)
-                            ? `${styles.available}`
-                            : `${styles.notAvailable}`
+                            ? styles.available
+                            : styles.notAvailable
                         }
                         onClick={() => {
                           setShown(true);
@@ -179,8 +146,8 @@ function App() {
                         type="button"
                         className={
                           !checkUnavailability(tue, h, true)
-                            ? `${styles.available}`
-                            : `${styles.notAvailable}`
+                            ? styles.available
+                            : styles.notAvailable
                         }
                         onClick={() => {
                           setShown(true);
@@ -205,8 +172,8 @@ function App() {
                         type="button"
                         className={
                           !checkUnavailability(wed, h, true)
-                            ? `${styles.available}`
-                            : `${styles.notAvailable}`
+                            ? styles.available
+                            : styles.notAvailabl
                         }
                         value={h}
                         onClick={() => {
@@ -232,8 +199,8 @@ function App() {
                         type="button"
                         className={
                           !checkUnavailability(thu, h, true)
-                            ? `${styles.available}`
-                            : `${styles.notAvailable}`
+                            ? styles.available
+                            : styles.notAvailable
                         }
                         value={h}
                         onClick={() => {
@@ -259,8 +226,8 @@ function App() {
                         type="button"
                         className={
                           !checkUnavailability(fri, h, true)
-                            ? `${styles.available}`
-                            : `${styles.notAvailable}`
+                            ? styles.available
+                            : styles.notAvailable
                         }
                         onClick={() => {
                           setShown(true);
@@ -284,12 +251,12 @@ function App() {
                         type="button"
                         className={
                           !checkUnavailability(day, h, false)
-                            ? `${styles.available}`
-                            : `${styles.notAvailable}`
+                            ? styles.available
+                            : styles.notAvailable
                         }
                         onClick={() => {
                           setShown(true);
-                          setDate(day);
+                          setDate(day.toDateString());
                           setHour(h);
                         }}
                       >

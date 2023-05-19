@@ -1,28 +1,13 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable operator-linebreak */
+import React from "react";
 import Header from "../../header/header";
 import styles from "./service-and-price.module.css";
 import Footer from "../../footer/footer";
+import useFetch from "../../../hooks/useFetch";
 
 function ServiceAndPrice() {
-  const [serviceAndPrice, setServiceAndPrice] = useState([]);
-  useEffect(() => {
-    const fetchFunction = async function () {
-      await fetch("http://localhost:5000/service-and-prices", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.data !== undefined) {
-            setServiceAndPrice(data.data.service);
-          }
-        });
-    };
-
-    fetchFunction();
-  }, []);
+  const fetchedData = useFetch("service-and-prices");
+  const serviceAndPrice = fetchedData.service;
   return (
     <>
       <Header />
@@ -36,12 +21,13 @@ function ServiceAndPrice() {
             </tr>
           </thead>
           <tbody>
-            {serviceAndPrice.map((item) => (
-              <tr>
-                <td>{item.service}</td>
-                <td>{item.price}</td>
-              </tr>
-            ))}
+            {serviceAndPrice !== undefined &&
+              serviceAndPrice.map((item) => (
+                <tr>
+                  <td>{item.service}</td>
+                  <td>{item.price}</td>
+                </tr>
+              ))}
           </tbody>
         </div>
         <div />

@@ -1,12 +1,10 @@
 /* eslint-disable linebreak-style */
 import React from "react";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
-import Landing from "./layouts/landing/landing";
+import Landing from "./layouts/pages/landing/landing";
 import Calendar from "./layouts/pages/calendar/calendar";
 import OurTeam from "./layouts/pages/our-team/our-team";
-import ErrorPage from "./components/reusable_components/error-page/error-page";
+import ErrorPage from "./layouts/pages/error-page/error-page";
 import ServiceAndPrice from "./layouts/pages/service-and-prices/service-and-prices";
 import CommentsPage from "./layouts/pages/our-team/comments-page/comments-page";
 import Contact from "./layouts/pages/contact/contact";

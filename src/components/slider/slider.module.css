@@ -1,13 +1,13 @@
 .icon_blue_dark {
-  color: #018e9a;
+  color: #70a2a6;
   height: 5rem;
 }
 .icon_blue_mid {
-  color: #01b2c1;
+  color: #8ccad0;
   height: 5rem;
 }
 .icon_blue_light {
-  color: #67d1da;
+  color: #afdade;
   height: 5rem;
 }
 
@@ -37,15 +37,15 @@ button {
 }
 
 .icon_dot_blue_dark {
-  color: #018e9a;
+  color: #70a2a6;
   margin: 1rem;
 }
 .icon_dot_blue_mid {
-  color: #01b2c1;
+  color: #8ccad0;
   margin: 1rem;
 }
 .icon_dot_blue_light {
-  color: #67d1da;
+  color: #afdade;
   margin: 1rem;
 }
 

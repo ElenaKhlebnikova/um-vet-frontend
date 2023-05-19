@@ -6,12 +6,9 @@
   justify-items: center;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  background-color: #8ccad0;
+  font-weight: 700;
   font-size: 2rem;
-  color: #fff;
-  -webkit-box-shadow: -8px 13px 41px -9px rgba(186, 195, 202, 0.8);
-  -moz-box-shadow: -8px 13px 41px -9px rgba(186, 195, 202, 0.8);
-  box-shadow: -8px 13px 41px -9px rgba(186, 195, 202, 0.8);
+  color: #8ccad0;
 }
 
 .btn_and_user_container {

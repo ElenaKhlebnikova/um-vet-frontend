@@ -1,19 +1,20 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable comma-dangle */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./make-appointment-form.module.css";
 import useValidate from "../../hooks/useValidate";
+import useFetch from "../../hooks/useFetch";
+import usePost from "../../hooks/usePost";
 
-// make sure to add prop-types for all props of each component
 function AppointmentForm({ doctor, hour, date }) {
   const [name, setName] = useState("");
-  const [procedure, setProcedure] = useState("");
+  const [procedure, setProcedure] = useState("Routine check up");
   const [phone, setPhone] = useState(0);
 
   // eslint-disable-next-line func-names
-  const [serviceAndPrice, setServiceAndPrice] = useState([]);
   const { messageName, messagePhone, invalid } = useValidate(
     name,
     "",
@@ -21,40 +22,18 @@ function AppointmentForm({ doctor, hour, date }) {
     0
   );
 
-  useEffect(() => {
-    const fetchFunction = async function () {
-      await fetch("http://localhost:5000/service-and-prices", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.data !== undefined) {
-            setServiceAndPrice(data.data.service);
-          }
-        });
-    };
-
-    fetchFunction();
-  }, []);
+  const fetchedData = useFetch("service-and-prices");
+  const serviceAndPrice = fetchedData.service;
 
   const submitFormAndMakeAnAppointment = async function (e) {
     e.preventDefault();
-    await fetch("http://localhost:5000/appointments", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        doctorId: doctor,
-        name,
-        phone,
-        procedure,
-        date,
-        startTime: hour,
-      }),
+    usePost("appointments", {
+      doctorId: doctor,
+      name,
+      phone,
+      procedure,
+      date,
+      startTime: hour,
     });
   };
 
@@ -93,12 +72,19 @@ function AppointmentForm({ doctor, hour, date }) {
             <select
               className={styles.select}
               onChange={(e) => setProcedure(e.target.value)}
+              defaultValue={
+                serviceAndPrice !== undefined &&
+                serviceAndPrice.length !== 0 &&
+                serviceAndPrice[0].service
+              }
             >
-              {serviceAndPrice.map((i) => (
-                <option className={styles.option} value={i.service}>
-                  {i.service}
-                </option>
-              ))}
+              {serviceAndPrice !== undefined &&
+                serviceAndPrice.length !== 0 &&
+                serviceAndPrice.map((i) => (
+                  <option className={styles.option} value={i.service}>
+                    {i.service}
+                  </option>
+                ))}
             </select>
           </div>
           <button

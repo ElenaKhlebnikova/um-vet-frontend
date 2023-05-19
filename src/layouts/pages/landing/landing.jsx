@@ -1,10 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./landing.module.css";
-import landingImg from "../../assets/pictures/MainPicture.jpeg";
-import Button from "../../components/reusable_components/button/button";
-import Slider from "../../components/slider/slider";
-import Header from "../header/header";
-import Footer from "../footer/footer";
+import landingImg from "../../../assets/pictures/MainPicture.jpeg";
+import Slider from "../../../components/slider/slider";
+import Header from "../../header/header";
+import Footer from "../../footer/footer";
 
 function Landing() {
   return (
@@ -16,7 +16,11 @@ function Landing() {
             Welcome to UmVet where pets meet compassionate care!
           </div>
           <div className={styles.btn_container}>
-            <Button text="Book an appointment" />
+            <Link to="/appointments">
+              <button type="button" className={styles.btn}>
+                Make an appointment
+              </button>
+            </Link>
           </div>
         </div>
         <div className={styles.pic_container}>

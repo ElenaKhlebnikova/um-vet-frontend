@@ -2,15 +2,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./header.module.css";
-import Dropdown from "../../components/reusable_components/dropdown/dropdown";
 import Logo from "../../assets/pictures/logo.png";
 
 function Header() {
-  const languages = [
-    { name: "EN", value: "English" },
-    { name: "DE", value: "German" },
-  ];
-
   return (
     <div className={styles.header_container}>
       <Link to="/">
@@ -33,9 +27,6 @@ function Header() {
       <Link to="/contacts">
         <div className={styles.menu_item_container}>Contacts</div>
       </Link>
-      <div className={styles.btn_and_user_container}>
-        <Dropdown options={languages} />
-      </div>
     </div>
   );
 }
