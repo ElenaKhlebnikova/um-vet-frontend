@@ -1,122 +1,122 @@
 .commentContainer {
-  display: grid;
-  margin: 10rem 10rem 5rem 10rem;
-  font-size: 2rem;
-  color: #36454f;
+    display: grid;
+    margin: 10rem 10rem 5rem 10rem;
+    font-size: 2rem;
+    color: #36454f;
 }
 
 .commentContainer {
-  display: grid;
-  margin: 10rem 10rem 5rem 10rem;
-  font-size: 2rem;
-  color: #36454f;
+    display: grid;
+    margin: 10rem 10rem 5rem 10rem;
+    font-size: 2rem;
+    color: #36454f;
 }
 
 .btnSend {
-  background-color: #01b2c1;
-  color: #fff;
-  margin-top: 5rem;
-  border: none;
-  border-radius: 0.5rem;
-  width: 10rem;
-  height: 5rem;
-  font-size: 2rem;
-  transition: all ease-in 0.5s;
-  align-self: flex-end;
+    background-color: #01b2c1;
+    color: #fff;
+    margin-top: 5rem;
+    border: none;
+    border-radius: 0.5rem;
+    width: 10rem;
+    height: 5rem;
+    font-size: 2rem;
+    transition: all ease-in 0.5s;
+    align-self: flex-end;
 }
 
 .btnSendInvalid {
-  background-color: #f57f95;
-  color: #fff;
-  margin-top: 5rem;
-  border: none;
-  border-radius: 0.5rem;
-  width: 10rem;
-  height: 5rem;
-  font-size: 2rem;
-  transition: all ease-in 0.5s;
-  align-self: flex-end;
+    background-color: #f57f95;
+    color: #fff;
+    margin-top: 5rem;
+    border: none;
+    border-radius: 0.5rem;
+    width: 10rem;
+    height: 5rem;
+    font-size: 2rem;
+    transition: all ease-in 0.5s;
+    align-self: flex-end;
 }
 
 .btnSend:hover {
-  background-color: #67d1da;
-  cursor: pointer;
+    background-color: #67d1da;
+    cursor: pointer;
 }
 
 .btnSendInvalid:hover {
-  cursor: not-allowed;
+    cursor: not-allowed;
 }
 .form {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .form label {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .form input {
-  border: solid 2px #67d1da;
+    border: solid 2px #67d1da;
 }
 
 .form input:focus {
-  border: solid 2px #018e9a;
+    border: solid 2px #018e9a;
 }
 
 .form input::placeholder {
-  font-size: 1.5rem;
-  margin: 1rem;
+    font-size: 1.5rem;
+    margin: 1rem;
 }
 
 .form textarea::placeholder {
-  font-size: 1.5rem;
-  font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
 }
 .form textarea {
-  border: solid 2px #67d1da;
-  resize: none;
-  height: 10rem;
-  margin-top: 0.8rem;
-  padding: 2rem;
-  font-size: 1.5rem;
-  font-weight: 100;
-  font-family: "Roboto", sans-serif;
+    border: solid 2px #67d1da;
+    resize: none;
+    height: 10rem;
+    margin-top: 0.8rem;
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
 }
 
 .form textarea:focus {
-  border: solid 2px #018e9a;
+    border: solid 2px #018e9a;
 }
 
 .formItem {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .rating {
-  align-self: flex-end;
-  margin-top: 5rem;
+    align-self: flex-end;
+    margin-top: 5rem;
 }
 
 .starIconInactive {
-  margin: 0rem 1rem;
-  font-size: 5rem;
-  color: #67d1da;
-  transition: all.2s;
+    margin: 0rem 1rem;
+    font-size: 5rem;
+    color: #67d1da;
+    transition: all.2s;
 }
 
 .starIconActive {
-  margin: 0rem 1rem;
-  font-size: 5rem;
-  color: #01b2c1;
+    margin: 0rem 1rem;
+    font-size: 5rem;
+    color: #01b2c1;
 }
 
 .starIconInactive:hover {
-  cursor: pointer;
-  color: #01b2c1;
+    cursor: pointer;
+    color: #01b2c1;
 }
 .starIconActive:hover {
-  cursor: pointer;
+    cursor: pointer;
 }

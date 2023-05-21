@@ -1,60 +1,60 @@
 .mainContainer {
-  margin: 10rem, 5rem;
+    margin: 10rem, 5rem;
 }
 
 .firstPostContainer {
-  height: 85vh;
-  background-size: cover;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 10rem 10rem;
-  color: #fff;
+    height: 85vh;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10rem 10rem;
+    color: #fff;
 }
 
 .titleFirstPost {
-  font-size: 5rem;
-  font-weight: 700;
-  margin: 5rem 2rem;
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 5rem 2rem;
 }
 
 .firstPostInfo {
-  display: flex;
-  flex-direction: column;
-  font-size: 2rem;
-  margin: 1rem 2rem;
-  height: 100%;
-  justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    margin: 1rem 2rem;
+    height: 100%;
+    justify-content: space-around;
 }
 
 .date {
-  font-weight: 700;
-  align-self: end;
+    font-weight: 700;
+    align-self: end;
 }
 
 .aticleIntro {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .moreBtn {
-  display: block;
-  align-self: end;
-  font-weight: 700;
-  color: inherit;
-  font-size: inherit;
+    display: block;
+    align-self: end;
+    font-weight: 700;
+    color: inherit;
+    font-size: inherit;
 }
 
 .moreBtn:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .otherPosts {
-  margin: 10rem 10rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 5rem;
-  font-size: 2rem;
+    margin: 10rem 10rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 5rem;
+    font-size: 2rem;
 }
 
 .img {
-  height: 25rem;
+    height: 25rem;
 }

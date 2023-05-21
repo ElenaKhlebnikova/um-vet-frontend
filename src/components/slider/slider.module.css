@@ -1,57 +1,57 @@
 .icon_blue_dark {
-  color: #70a2a6;
-  height: 5rem;
+    color: #70a2a6;
+    height: 5rem;
 }
 .icon_blue_mid {
-  color: #8ccad0;
-  height: 5rem;
+    color: #8ccad0;
+    height: 5rem;
 }
 .icon_blue_light {
-  color: #afdade;
-  height: 5rem;
+    color: #afdade;
+    height: 5rem;
 }
 
 .icon_blue_dark:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 .icon_blue_mid:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 .icon_blue_light:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 .container {
-  display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-  align-items: center;
-  justify-items: center;
-  margin: 3rem 0 3rem 0;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    align-items: center;
+    justify-items: center;
+    margin: 3rem 0 3rem 0;
 }
 button {
-  background: none;
-  border: none;
-  padding: 0;
+    background: none;
+    border: none;
+    padding: 0;
 }
 .dots {
-  grid-column: 2/3;
+    grid-column: 2/3;
 }
 
 .icon_dot_blue_dark {
-  color: #70a2a6;
-  margin: 1rem;
+    color: #70a2a6;
+    margin: 1rem;
 }
 .icon_dot_blue_mid {
-  color: #8ccad0;
-  margin: 1rem;
+    color: #8ccad0;
+    margin: 1rem;
 }
 .icon_dot_blue_light {
-  color: #afdade;
-  margin: 1rem;
+    color: #afdade;
+    margin: 1rem;
 }
 
 .btn {
-  margin: 0 2rem 0 2rem;
+    margin: 0 2rem 0 2rem;
 }
 .btn:hover {
-  cursor: pointer;
+    cursor: pointer;
 }

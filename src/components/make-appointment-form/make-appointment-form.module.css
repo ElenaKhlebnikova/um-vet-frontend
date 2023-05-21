@@ -1,95 +1,95 @@
 .formContainer {
-  position: fixed;
-  top: 0%;
-  height: 100vh;
-  width: 100vw;
-  background-color: #36454fc3;
-  overflow-x: hidden;
+    position: fixed;
+    top: 0%;
+    height: 100vh;
+    width: 100vw;
+    background-color: #36454fc3;
+    overflow-x: hidden;
 }
 .form {
-  position: fixed;
-  top: 2%;
-  left: 7%;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  padding: 10rem 30rem;
-  overflow: none;
-  font-size: 2.5rem;
-  color: #36454f;
-  width: 50%;
+    position: fixed;
+    top: 2%;
+    left: 7%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 10rem 30rem;
+    overflow: none;
+    font-size: 2.5rem;
+    color: #36454f;
+    width: 50%;
 }
 
 .formItem {
-  margin-bottom: 3rem;
+    margin-bottom: 3rem;
 }
 
 .btnSend {
-  background-color: #01b2c1;
-  color: #fff;
-  margin-top: 5rem;
-  border: none;
-  border-radius: 0.5rem;
-  width: 10rem;
-  height: 5rem;
-  font-size: 2rem;
-  transition: all ease-in 0.5s;
-  align-self: flex-end;
+    background-color: #01b2c1;
+    color: #fff;
+    margin-top: 5rem;
+    border: none;
+    border-radius: 0.5rem;
+    width: 10rem;
+    height: 5rem;
+    font-size: 2rem;
+    transition: all ease-in 0.5s;
+    align-self: flex-end;
 }
 
 .btnSendInvalid {
-  background-color: #f57f95;
-  color: #fff;
-  margin-top: 5rem;
-  border: none;
-  border-radius: 0.5rem;
-  width: 10rem;
-  height: 5rem;
-  font-size: 2rem;
-  transition: all ease-in 0.5s;
-  align-self: flex-end;
+    background-color: #f57f95;
+    color: #fff;
+    margin-top: 5rem;
+    border: none;
+    border-radius: 0.5rem;
+    width: 10rem;
+    height: 5rem;
+    font-size: 2rem;
+    transition: all ease-in 0.5s;
+    align-self: flex-end;
 }
 
 .btnSend:hover {
-  background-color: #67d1da;
-  cursor: pointer;
+    background-color: #67d1da;
+    cursor: pointer;
 }
 
 .btnSendInvalid:hover {
-  cursor: not-allowed;
+    cursor: not-allowed;
 }
 
 .select {
-  color: #36454f;
-  font-size: inherit;
-  background-color: #d2f0f3;
-  border: 0.2rem solid #d2f0f3;
-  width: 25%;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  font-size: 2rem;
+    color: #36454f;
+    font-size: inherit;
+    background-color: #d2f0f3;
+    border: 0.2rem solid #d2f0f3;
+    width: 25%;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
 }
 
 .select:focus {
-  border: 0.2rem solid #fff;
+    border: 0.2rem solid #fff;
 }
 
 .select:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .options:hover {
-  cursor: pointer;
-  color: #d2f0f3;
+    cursor: pointer;
+    color: #d2f0f3;
 }
 
 input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }
 input:focus {
-  border: #36454f;
+    border: #36454f;
 }

@@ -1,48 +1,48 @@
 .header_container {
-  width: 100%;
-  height: fit-content;
-  padding: 1rem 0 1rem 0;
-  align-items: center;
-  justify-items: center;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  font-weight: 700;
-  font-size: 2rem;
-  color: #8ccad0;
+    width: 100%;
+    height: fit-content;
+    padding: 1rem 0 1rem 0;
+    align-items: center;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 700;
+    font-size: 2rem;
+    color: #8ccad0;
 }
 
 .btn_and_user_container {
-  margin-right: 2rem;
-  display: flex;
-  flex-direction: column;
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .user_container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-  transition: all ease-in 0.5s;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: all ease-in 0.5s;
 }
 
 .logo {
-  height: 10rem;
+    height: 10rem;
 }
 
 .menu_item_container {
-  transition: all ease-in 0.5s;
+    transition: all ease-in 0.5s;
 }
 .menu_item_container:hover {
-  cursor: pointer;
-  color: #ddd;
+    cursor: pointer;
+    color: #ddd;
 }
 
 .user:first-child {
-  border-right: 0.2rem solid #fff;
+    border-right: 0.2rem solid #fff;
 }
 .user {
-  padding: 0 2rem 0rem 2rem;
+    padding: 0 2rem 0rem 2rem;
 }
 .user:hover {
-  cursor: pointer;
-  color: #ddd;
+    cursor: pointer;
+    color: #ddd;
 }

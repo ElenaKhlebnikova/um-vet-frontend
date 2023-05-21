@@ -1,61 +1,61 @@
 .footerMainContainer {
-  margin-top: 20rem;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  background-color: #8ccad0;
-  width: 100%;
-  font-size: 1.5rem;
-  color: #fff;
-  align-self: start;
-  overflow: hidden;
+    margin-top: 20rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    background-color: #8ccad0;
+    width: 100%;
+    font-size: 1.5rem;
+    color: #fff;
+    align-self: start;
+    overflow: hidden;
 }
 .footerMainContainer img {
-  height: 10rem;
-  align-self: center;
+    height: 10rem;
+    align-self: center;
 }
 
 .internalLinks {
-  overflow: hidden;
-  text-align: center;
+    overflow: hidden;
+    text-align: center;
 }
 
 .internalLinks img {
-  margin-top: 5rem;
+    margin-top: 5rem;
 }
 
 .li {
-  transition: all 0.3s;
-  margin-bottom: 1rem;
+    transition: all 0.3s;
+    margin-bottom: 1rem;
 }
 .li:hover {
-  cursor: pointer;
-  color: #c1c2c6;
+    cursor: pointer;
+    color: #c1c2c6;
 }
 
 .externalLinksContainer {
-  width: 90%;
-  font-size: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-items: end;
+    width: 90%;
+    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-items: end;
 }
 
 .nameContainer {
-  grid-column: 1/3;
-  align-self: end;
-  margin-right: 10rem;
-  margin-top: 10rem;
+    grid-column: 1/3;
+    align-self: end;
+    margin-right: 10rem;
+    margin-top: 10rem;
 }
 
 .iconLinksContainer {
-  grid-row: 2/3;
-  grid-column: 2/3;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 5rem;
-  gap: 2rem;
-  margin-right: 10rem;
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5rem;
+    gap: 2rem;
+    margin-right: 10rem;
 }
 .iconLinksContainer:first-child {
-  margin-right: 2rem;
+    margin-right: 2rem;
 }
