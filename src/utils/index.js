@@ -67,5 +67,6 @@ function getDaysInMonth(month, year) {
     });
 }
 
+// return values from the function itself and do not call functions after exporting things
 export { nextWeeks, firstWeek, workingHours };
 getDaysInMonth(month, year, day);

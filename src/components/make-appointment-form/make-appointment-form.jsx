@@ -1,3 +1,6 @@
+// remove all eslint disabling as you don't need them anymore
+// fix all eslint issues in all files
+
 /* eslint-disable operator-linebreak */
 /* eslint-disable comma-dangle */
 /* eslint-disable import/no-unresolved */

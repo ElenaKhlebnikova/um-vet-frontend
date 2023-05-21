@@ -1,6 +1,9 @@
 /* eslint-disable comma-dangle */
 import { useState, useEffect } from 'react';
 
+// use arrow functions instead of regular functions everywhere in frontend and as well as backend
+
+// rename to useFetcher
 const useFetch = function (route, queryName, query) {
     const [data, setData] = useState([]);
     useEffect(() => {

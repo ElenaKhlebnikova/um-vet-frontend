@@ -1,3 +1,5 @@
+// look into fort awesome icons, probably don't need to install that many packages
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
