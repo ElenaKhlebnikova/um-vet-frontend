@@ -1,8 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './header.module.css';
-import Logo from '../../assets/pictures/logo.png';
+import Logo from '../../assets/logo.png';
 
 function Header() {
     return (

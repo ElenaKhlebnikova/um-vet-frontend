@@ -1,19 +1,14 @@
-/* eslint-disable consistent-return */
-/* eslint-disable operator-linebreak */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable func-names */
-/* eslint-disable no-shadow */
-/* eslint-disable prefer-destructuring */
 import { React, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router';
 import { nextWeeks, firstWeek, workingHours } from '../../../utils';
 import styles from './calendar.module.css';
-import AppointmentForm from '../../../components/make-appointment-form/make-appointment-form';
+import AppointmentForm from './make-appointment-form/make-appointment-form';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
-import useFetch from '../../../hooks/useFetch';
+import useDoctors from '../../../hooks/useDoctors';
+import useAppointments from '../../../hooks/useAppointments';
 
 const mon = firstWeek.filter((day) => day.toDateString().startsWith('Mon'));
 const tue = firstWeek.filter((day) => day.toDateString().startsWith('Tue'));
@@ -21,7 +16,6 @@ const wed = firstWeek.filter((day) => day.toDateString().startsWith('Wed'));
 const thu = firstWeek.filter((day) => day.toDateString().startsWith('Thu'));
 const fri = firstWeek.filter((day) => day.toDateString().startsWith('Fri'));
 
-// rename to Calendar and use arrow functions
 function App() {
     const [shown, setShown] = useState(false);
     const [date, setDate] = useState('');
@@ -29,15 +23,8 @@ function App() {
     const [doctor, setDoctor] = useState('');
     const { doctorId } = useParams();
 
-    const fetchedDoctors = useFetch('doctors');
-    const doctors = fetchedDoctors.doctors;
-
-    const fetchedAppointmentsData = useFetch(
-        'appointments',
-        'doctorId',
-        doctor
-    );
-    const data = fetchedAppointmentsData.doctorsAppointments;
+    const doctors = useDoctors();
+    const { data } = useAppointments(doctor);
 
     const checkUnavailability = function (day, h, firstWeek) {
         if (firstWeek === true) {
@@ -92,6 +79,7 @@ function App() {
                         {doctors !== undefined &&
                             doctors.map((doctor) => (
                                 <option
+                                    key={doctor._id}
                                     className={styles.options}
                                     selected={doctorId === doctor._id}
                                     value={doctor._id}
@@ -127,6 +115,7 @@ function App() {
                                     {mon.length !== 0 &&
                                         workingHours.map((h) => (
                                             <button
+                                                key={h + mon}
                                                 disabled={
                                                     checkUnavailability(
                                                         mon,
@@ -171,6 +160,7 @@ function App() {
                                     {tue.length !== 0 &&
                                         workingHours.map((h) => (
                                             <button
+                                                key={h + tue}
                                                 disabled={
                                                     checkUnavailability(
                                                         thu,
@@ -215,6 +205,7 @@ function App() {
                                     {wed.length !== 0 &&
                                         workingHours.map((h) => (
                                             <button
+                                                key={h + wed}
                                                 disabled={
                                                     checkUnavailability(
                                                         wed,
@@ -260,6 +251,7 @@ function App() {
                                     {thu.length !== 0 &&
                                         workingHours.map((h) => (
                                             <button
+                                                key={h + thu}
                                                 disabled={
                                                     checkUnavailability(
                                                         thu,
@@ -305,6 +297,7 @@ function App() {
                                     {fri.length !== 0 &&
                                         workingHours.map((h) => (
                                             <button
+                                                key={h + fri}
                                                 disabled={
                                                     checkUnavailability(
                                                         fri,
@@ -337,11 +330,12 @@ function App() {
                             </div>
 
                             {nextWeeks.map((day) => (
-                                <div className={styles.dateContainer}>
+                                <div key={day} className={styles.dateContainer}>
                                     <div>{day.toDateString().slice(3, -4)}</div>
                                     <div className={styles.hoursContainer}>
                                         {workingHours.map((h) => (
                                             <button
+                                                key={h + day}
                                                 disabled={
                                                     checkUnavailability(
                                                         day,

@@ -1,6 +1,3 @@
-/* eslint-disable object-curly-newline */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import L from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
@@ -13,7 +10,7 @@ import {
 import styles from './contact.module.css';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
-import mapPin from '../../../assets/pictures/map-pin-soild.png';
+import mapPin from '../../../assets/map-pin-soild.png';
 
 function Contact() {
     function getIcon() {

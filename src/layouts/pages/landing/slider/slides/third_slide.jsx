@@ -1,9 +1,7 @@
-/* eslint-disable react/style-prop-object */
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './slides.module.css';
-import catImg from '../../../assets/pictures/cat_third_slide.jpg';
+import catImg from '../../../../../assets/cat_third_slide.jpg';
 
 function ThirdSlide() {
     return (

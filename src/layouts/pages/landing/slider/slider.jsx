@@ -1,7 +1,3 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable indent */
-/* eslint-disable func-names */
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react';
 import {
     faAngleLeft,

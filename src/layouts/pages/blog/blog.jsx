@@ -1,34 +1,14 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-lone-blocks */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../../header/header';
-import Footer from '../../footer/footer';
 import styles from './blog.module.css';
-import useFetch from '../../../hooks/useFetch';
-
-// <Layout /> component and this layout
-// create a new page called Layout and import that page in all other pages instead of importing header and footer separately
-const Layout = (props) => {
-    return (
-        <div>
-            <Header />
-            {props.children}
-            <Footer />
-        </div>
-    );
-};
+import useBlog from '../../../hooks/useBlog';
 
 function Blog() {
-    // try if this works
-    const { posts } = useFetch('blog');
+    const posts = useBlog();
 
     return (
-        <Layout>
-            {posts !== undefined && (
+        <>
+            {posts !== [] && posts[0] !== undefined && (
                 <div className={styles.mainContainer}>
                     <div
                         style={{
@@ -64,7 +44,10 @@ function Blog() {
                             posts
                                 .filter((post) => posts.indexOf(post) !== 0)
                                 .map((post) => (
-                                    <div className={styles.postContainer}>
+                                    <div
+                                        key={post._id}
+                                        className={styles.postContainer}
+                                    >
                                         <img
                                             className={styles.img}
                                             src={post.img}
@@ -87,7 +70,7 @@ function Blog() {
                     </div>
                 </div>
             )}
-        </Layout>
+        </>
     );
 }
 

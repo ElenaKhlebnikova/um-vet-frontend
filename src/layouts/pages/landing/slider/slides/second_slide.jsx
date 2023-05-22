@@ -1,9 +1,7 @@
-/* eslint-disable react/style-prop-object */
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './slides.module.css';
-import teamImg from '../../../assets/pictures/team.jpg';
+import teamImg from '../../../../../assets/team.jpg';
 
 function SecondSlide() {
     return (

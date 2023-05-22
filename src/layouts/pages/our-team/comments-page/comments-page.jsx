@@ -1,8 +1,3 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable comma-dangle */
 import React from 'react';
 import { useParams } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,16 +11,14 @@ import { Link } from 'react-router-dom';
 import Header from '../../../header/header';
 import Footer from '../../../footer/footer';
 import styles from './comments-page.module.css';
-import CommentForm from './comment-form.jsx/comment-form';
-import useFetch from '../../../../hooks/useFetch';
+import CommentForm from './comment-form/comment-form';
+import useDoctors from '../../../../hooks/useDoctors';
+import useComments from '../../../../hooks/useComments';
 
 function CommentsPage() {
     const { doctorId } = useParams();
-
-    const fetchedComments = useFetch('comments', 'doctorId', doctorId);
-    const fetchedDoctor = useFetch('doctors', 'doctorId', doctorId);
-    const comments = fetchedComments.comments;
-    const doctor = fetchedDoctor.doctors;
+    const doctor = useDoctors(doctorId);
+    const { comments } = useComments(doctorId);
 
     return (
         <>
@@ -35,58 +28,55 @@ function CommentsPage() {
                     &larr; Go back{' '}
                 </button>
             </Link>
-
-            {doctor !== undefined && doctor !== [] && (
-                <div className={styles.mainContainer}>
-                    <div>
-                        <img
-                            className={styles.img}
-                            src={doctor[0].img}
-                            alt={doctor[0].name}
-                        />
-                    </div>
-                    <div className={styles.doctorsInfo}>
-                        <ul className={styles.generalInfo}>
-                            <li style={{ fontWeight: 700, fontSize: '5rem' }}>
-                                {doctor[0].name}
-                            </li>
-                            <li>
-                                <span className={styles.span}>
-                                    <FontAwesomeIcon icon={faGraduationCap} />
-                                </span>
-                                {doctor[0].education}
-                            </li>
-                            <li>
-                                <span className={styles.span}>
-                                    <FontAwesomeIcon icon={faGlasses} />
-                                </span>
-                                {doctor[0].specialization}
-                            </li>
-                            <li>
-                                <span className={styles.span}>
-                                    <FontAwesomeIcon icon={faEnvelope} />
-                                </span>
-                                {doctor[0].email}
-                            </li>
-                        </ul>
-                    </div>
-                    <div className={styles.about}>
-                        <div>{doctor[0].about}</div>
-                        <button type="button" className={styles.btn}>
-                            <Link to={`/${doctor.id}/appointments`}>
-                                Book an appointment
-                            </Link>
-                        </button>
-                    </div>
+            <div className={styles.mainContainer}>
+                <div>
+                    <img
+                        className={styles.img}
+                        src={doctor.img}
+                        alt={doctor.name}
+                    />
                 </div>
-            )}
+                <div className={styles.doctorsInfo}>
+                    <ul className={styles.generalInfo}>
+                        <li style={{ fontWeight: 700, fontSize: '5rem' }}>
+                            {doctor.name}
+                        </li>
+                        <li>
+                            <span className={styles.span}>
+                                <FontAwesomeIcon icon={faGraduationCap} />
+                            </span>
+                            {doctor.education}
+                        </li>
+                        <li>
+                            <span className={styles.span}>
+                                <FontAwesomeIcon icon={faGlasses} />
+                            </span>
+                            {doctor.specialization}
+                        </li>
+                        <li>
+                            <span className={styles.span}>
+                                <FontAwesomeIcon icon={faEnvelope} />
+                            </span>
+                            {doctor.email}
+                        </li>
+                    </ul>
+                </div>
+                <div className={styles.about}>
+                    <div>{doctor.about}</div>
+                    <button type="button" className={styles.btn}>
+                        <Link to={`/${doctor.id}/appointments`}>
+                            Book an appointment
+                        </Link>
+                    </button>
+                </div>
+            </div>
 
             <div>
                 <CommentForm />
                 {comments !== undefined &&
                     comments !== [] &&
                     comments.map((com) => (
-                        <div className={styles.commentContainer}>
+                        <div key={com._id} className={styles.commentContainer}>
                             <div className={styles.comment}>
                                 <p style={{ fontWeight: 700 }}>{com.name}</p>
 
@@ -145,7 +135,6 @@ function CommentsPage() {
                         </div>
                     ))}
             </div>
-
             <Footer />
         </>
     );

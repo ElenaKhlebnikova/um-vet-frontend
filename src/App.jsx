@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Landing from './layouts/pages/landing/landing';
@@ -10,6 +9,8 @@ import CommentsPage from './layouts/pages/our-team/comments-page/comments-page';
 import Contact from './layouts/pages/contact/contact';
 import Blog from './layouts/pages/blog/blog';
 import Post from './layouts/pages/blog/post';
+import Header from './layouts/header/header';
+import Footer from './layouts/footer/footer';
 
 const router = createBrowserRouter([
     {
@@ -60,7 +61,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-    return <RouterProvider router={router} />;
+    return (
+        <RouterProvider router={router}>
+            <Header></Header>
+            <Footer></Footer>
+        </RouterProvider>
+    );
 }
 
 export default App;
