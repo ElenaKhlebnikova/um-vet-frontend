@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -9,7 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './slides.module.css';
-import buildingImg from '../../../assets/pictures/building.png';
+import buildingImg from '../../../../../assets/building.png';
 
 function FirstSlide() {
     return (

@@ -1,16 +1,9 @@
-// remove all eslint disabling as you don't need them anymore
-// fix all eslint issues in all files
-
-/* eslint-disable operator-linebreak */
-/* eslint-disable comma-dangle */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './make-appointment-form.module.css';
-import useValidate from '../../hooks/useValidate';
-import useFetch from '../../hooks/useFetch';
-import usePost from '../../hooks/usePost';
+import useValidate from '../../../../hooks/useValidate';
+import useServiceAndPrice from '../../../../hooks/useServiceAndPrice';
+import useAppointments from '../../../../hooks/useAppointments';
 
 function AppointmentForm({ doctor, hour, date }) {
     const [name, setName] = useState('');
@@ -25,12 +18,11 @@ function AppointmentForm({ doctor, hour, date }) {
         0
     );
 
-    const fetchedData = useFetch('service-and-prices');
-    const serviceAndPrice = fetchedData.service;
-
+    const serviceAndPrice = useServiceAndPrice();
+    const { createAppointment } = useAppointments();
     const submitFormAndMakeAnAppointment = async function (e) {
         e.preventDefault();
-        usePost('appointments', {
+        createAppointment({
             doctorId: doctor,
             name,
             phone,
@@ -87,6 +79,7 @@ function AppointmentForm({ doctor, hour, date }) {
                                 serviceAndPrice.length !== 0 &&
                                 serviceAndPrice.map((i) => (
                                     <option
+                                        key={i._id}
                                         className={styles.option}
                                         value={i.service}
                                     >

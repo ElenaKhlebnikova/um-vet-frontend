@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './landing.module.css';
-import landingImg from '../../../assets/pictures/MainPicture.jpeg';
-import Slider from '../../../components/slider/slider';
+import landingImg from '../../../assets/MainPicture.jpeg';
+import Slider from './slider/slider';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 

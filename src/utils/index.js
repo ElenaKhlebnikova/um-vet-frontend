@@ -1,8 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable max-len */
-/* eslint-disable import/no-mutable-exports */
-// rename file to utils.js or index.js
-
 // Getting the current day
 const currentDay = new Date(Date.now());
 const day = currentDay.getDate();

@@ -1,13 +1,11 @@
-/* eslint-disable operator-linebreak */
 import React from 'react';
 import Header from '../../header/header';
 import styles from './service-and-price.module.css';
 import Footer from '../../footer/footer';
-import useFetch from '../../../hooks/useFetch';
+import useServiceAndPrice from '../../../hooks/useServiceAndPrice';
 
 function ServiceAndPrice() {
-    const fetchedData = useFetch('service-and-prices');
-    const serviceAndPrice = fetchedData.service;
+    const serviceAndPrice = useServiceAndPrice();
     return (
         <>
             <Header />
@@ -23,7 +21,7 @@ function ServiceAndPrice() {
                     <tbody>
                         {serviceAndPrice !== undefined &&
                             serviceAndPrice.map((item) => (
-                                <tr>
+                                <tr key={item._id}>
                                     <td>{item.service}</td>
                                     <td>{item.price}</td>
                                 </tr>

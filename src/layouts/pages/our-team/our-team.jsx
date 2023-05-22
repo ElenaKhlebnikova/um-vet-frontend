@@ -1,23 +1,12 @@
-/* eslint-disable prefer-destructuring */
-/* eslint-disable quotes */
-/* eslint-disable react/jsx-curly-brace-presence */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable react/style-prop-object */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable import/no-useless-path-segments */
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Link } from 'react-router-dom';
 import styles from './our-team.module.css';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
-import useFetch from '../../../hooks/useFetch';
-
-// create 2 new components for a Doctor on "our team" page and one for the day (with hours) in the booking page
+import useDoctors from '../../../hooks/useDoctors';
 
 function OurTeam() {
-    const fetchedDoctors = useFetch('doctors');
-    const doctors = fetchedDoctors.doctors;
+    const doctors = useDoctors();
 
     return (
         <>
@@ -25,7 +14,10 @@ function OurTeam() {
             {doctors !== [] && doctors !== undefined && (
                 <div className={styles.mainContainer}>
                     {doctors.map((doctor) => (
-                        <div className={styles.doctorsContainer}>
+                        <div
+                            key={doctor._id}
+                            className={styles.doctorsContainer}
+                        >
                             <img src={doctor.img} alt={doctor.name} />
                             <div className={styles.doctorsInfo}>
                                 <div className={styles.doctorName}>

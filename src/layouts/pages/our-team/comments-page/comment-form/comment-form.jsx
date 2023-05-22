@@ -1,15 +1,10 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable comma-dangle */
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router';
 import styles from './comment-form.module.css';
 import useValidate from '../../../../../hooks/useValidate';
-import usePost from '../../../../../hooks/usePost';
+import useComments from '../../../../../hooks/useComments';
 
 function CommentForm() {
     const [comment, setComment] = useState('');
@@ -27,12 +22,12 @@ function CommentForm() {
         rating
     );
 
-    console.log(invalid);
+    const { createComment } = useComments();
 
     const submitAComment = async function (e) {
         e.preventDefault();
 
-        usePost('comments', {
+        createComment({
             doctorId: doctorId.doctorId,
             name,
             date,

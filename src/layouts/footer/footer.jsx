@@ -1,12 +1,8 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-trailing-spaces */
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-// put images in /assets folder directly instead of inside /pictures
-import footerLogo from '../../assets/pictures/footerLogo.png';
+import footerLogo from '../../assets/footerLogo.png';
 import styles from './footer.module.css';
 
 function Footer() {
