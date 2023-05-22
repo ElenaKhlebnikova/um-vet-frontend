@@ -4,6 +4,7 @@
 /* eslint-disable object-curly-newline */
 import { useState, useEffect } from 'react';
 
+// it should be a validator per form, when you add more form split this hook into different functions for each form
 const useValidate = function (name, comment, phone, rating) {
     const [messageName, setMessageName] = useState('');
     const [messageComment, setMessageComment] = useState('');
@@ -19,6 +20,7 @@ const useValidate = function (name, comment, phone, rating) {
     ) {
         // validating fields
 
+        // these should be renamed as errors, nameError, commentError
         nameValue.length < 3 &&
             setMessageName('Name should be at least 3 characters long');
 
@@ -44,6 +46,7 @@ const useValidate = function (name, comment, phone, rating) {
             ? setMessageRating('Please rate the doctor from 1 to 5')
             : setMessageRating('');
 
+        // use regex to validate a phone number, you can find it probably on Stackoverflow
         phoneValue < 10000000000 || phoneValue > 99999999999
             ? setMessagePhone('Phone number should be 11 characters long')
             : setMessagePhone('');

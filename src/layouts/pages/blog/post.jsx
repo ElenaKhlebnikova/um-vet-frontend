@@ -11,6 +11,8 @@ import styles from './post.module.css';
 function Post() {
     const { postId } = useParams();
 
+    // fetchPost() if no paramater is passed then fetch all posts, if Id is passed then fetch only that one post
+    // as a function and not a hook
     const fetcedPosts = useFetch('blog', 'postId', postId);
     const post = fetcedPosts.posts;
     console.log(post);

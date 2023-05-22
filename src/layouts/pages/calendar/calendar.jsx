@@ -8,11 +8,7 @@ import { React, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router';
-import {
-    nextWeeks,
-    firstWeek,
-    workingHours,
-} from '../../../utils/working-time';
+import { nextWeeks, firstWeek, workingHours } from '../../../utils';
 import styles from './calendar.module.css';
 import AppointmentForm from '../../../components/make-appointment-form/make-appointment-form';
 import Header from '../../header/header';
@@ -25,6 +21,7 @@ const wed = firstWeek.filter((day) => day.toDateString().startsWith('Wed'));
 const thu = firstWeek.filter((day) => day.toDateString().startsWith('Thu'));
 const fri = firstWeek.filter((day) => day.toDateString().startsWith('Fri'));
 
+// rename to Calendar and use arrow functions
 function App() {
     const [shown, setShown] = useState(false);
     const [date, setDate] = useState('');

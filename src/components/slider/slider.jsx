@@ -14,23 +14,31 @@ import FirstSlide from './slides/first_slide';
 import SecondSlide from './slides/second_slide';
 import ThirdSlide from './slides/third_slide';
 
+const DIRECTIONS = {
+    INC: 'inc',
+    DEC: 'dec',
+};
+
 function Slider() {
     const [slide, setSlide] = useState(1);
 
-    const handleSlides = function (count) {
-        if (slide === 3 && count === +1) {
+    const handleSlides = function (direction) {
+        if (slide === 3 && direction === DIRECTIONS.INC) {
             setSlide(1);
-        } else if (slide === 1 && count === -1) {
+        } else if (slide === 1 && direction === DIRECTIONS.DEC) {
             setSlide(3);
         } else {
-            setSlide(slide + count);
+            setSlide(slide + direction);
         }
     };
 
     return (
         <div className={styles.container}>
             <div className={styles.btn}>
-                <button type="button" onClick={() => handleSlides(-1)}>
+                <button
+                    type="button"
+                    onClick={() => handleSlides(DIRECTIONS.INC)}
+                >
                     <FontAwesomeIcon
                         className={
                             slide === 1
@@ -48,7 +56,7 @@ function Slider() {
                 {slide === 2 && <SecondSlide />}
                 {slide === 3 && <ThirdSlide />}
             </div>
-            <button type="button" onClick={() => handleSlides(+1)}>
+            <button type="button" onClick={() => handleSlides(DIRECTIONS.DEC)}>
                 <div className={styles.btn}>
                     <FontAwesomeIcon
                         className={

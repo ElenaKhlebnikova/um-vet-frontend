@@ -10,13 +10,24 @@ import Footer from '../../footer/footer';
 import styles from './blog.module.css';
 import useFetch from '../../../hooks/useFetch';
 
-function Blog() {
-    const fetchedPosts = useFetch('blog');
-    const posts = fetchedPosts.posts;
-
+// <Layout /> component and this layout
+// create a new page called Layout and import that page in all other pages instead of importing header and footer separately
+const Layout = (props) => {
     return (
         <div>
             <Header />
+            {props.children}
+            <Footer />
+        </div>
+    );
+};
+
+function Blog() {
+    // try if this works
+    const { posts } = useFetch('blog');
+
+    return (
+        <Layout>
             {posts !== undefined && (
                 <div className={styles.mainContainer}>
                     <div
@@ -76,8 +87,7 @@ function Blog() {
                     </div>
                 </div>
             )}
-            <Footer />
-        </div>
+        </Layout>
     );
 }
 

@@ -13,6 +13,8 @@ import Header from '../../header/header';
 import Footer from '../../footer/footer';
 import useFetch from '../../../hooks/useFetch';
 
+// create 2 new components for a Doctor on "our team" page and one for the day (with hours) in the booking page
+
 function OurTeam() {
     const fetchedDoctors = useFetch('doctors');
     const doctors = fetchedDoctors.doctors;
