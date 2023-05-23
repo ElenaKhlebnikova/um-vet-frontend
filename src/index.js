@@ -3,7 +3,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Landing from './layouts/pages/landing/landing';
 import Calendar from './layouts/pages/calendar/calendar';
@@ -20,42 +19,90 @@ import Footer from './layouts/footer/footer';
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Landing />,
+        element: (
+            <>
+                <Header />
+                <Landing />,
+                <Footer />
+            </>
+        ),
         errorElement: <ErrorPage />,
     },
     {
         path: '/our-team',
-        element: <OurTeam />,
+        element: (
+            <>
+                <Header />
+                <OurTeam />,
+                <Footer />
+            </>
+        ),
         errorElement: <ErrorPage />,
     },
     {
         path: '/:doctorId/appointments',
-        element: <Calendar />,
+        element: (
+            <>
+                <Header />
+                <Calendar />,
+                <Footer />
+            </>
+        ),
         errorElement: <ErrorPage />,
     },
     {
         path: '/:doctorId/comments',
-        element: <CommentsPage />,
+        element: (
+            <>
+                <Header />
+                <CommentsPage />,
+                <Footer />
+            </>
+        ),
         errorElement: <ErrorPage />,
     },
     {
         path: '/appointments',
-        element: <Calendar />,
+        element: (
+            <>
+                <Header />
+                <Calendar />,
+                <Footer />
+            </>
+        ),
         errorElement: <ErrorPage />,
     },
     {
         path: '/service-and-price',
-        element: <ServiceAndPrice />,
+        element: (
+            <>
+                <Header />
+                <ServiceAndPrice />,
+                <Footer />
+            </>
+        ),
         errorElement: <ErrorPage />,
     },
     {
         path: '/contacts',
-        element: <Contact />,
+        element: (
+            <>
+                <Header />
+                <Contact />,
+                <Footer />
+            </>
+        ),
         errorElement: <ErrorPage />,
     },
     {
         path: '/blog',
-        element: <Blog />,
+        element: (
+            <>
+                <Header />
+                <Blog />,
+                <Footer />
+            </>
+        ),
         errorElement: <ErrorPage />,
     },
     {

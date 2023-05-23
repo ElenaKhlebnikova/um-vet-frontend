@@ -1,6 +1,7 @@
 .formContainer {
     position: fixed;
     top: 0%;
+    left: 0%;
     height: 100vh;
     width: 100vw;
     background-color: #36454fc3;
@@ -19,10 +20,14 @@
     font-size: 2.5rem;
     color: #36454f;
     width: 50%;
+    text-align: start;
 }
 
 .formItem {
     margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
 }
 
 .btnSend {

@@ -17,7 +17,7 @@ function AppointmentForm({ doctor, hour, date }) {
 
     const serviceAndPrice = useServiceAndPrice();
     const { createAppointment } = useAppointments();
-    const submitFormAndMakeAnAppointment = async function (e) {
+    const submitFormAndMakeAnAppointment = async (e) => {
         e.preventDefault();
         createAppointment({
             doctorId: doctor,

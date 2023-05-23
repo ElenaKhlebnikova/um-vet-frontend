@@ -24,12 +24,6 @@
     background-color: #c0dfe1;
 }
 
-.hoursContainer {
-    margin: 1rem 0.5rem 3rem 0.5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
 .close {
     position: fixed;
     top: 20%;

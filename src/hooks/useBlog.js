@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getBlog } from '../api';
 
-const useBlog = function (id) {
+const useBlog = (id) => {
     const [data, setData] = useState([]);
     const fetchData = (postId) => {
         if (postId) {

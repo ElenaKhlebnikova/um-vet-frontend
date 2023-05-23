@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAppointments, createAppointment } from '../api';
 
-const useAppointments = function (id) {
+const useAppointments = (id) => {
     const [data, setData] = useState([]);
     const fetchData = (doctorId) => {
         if (doctorId) {

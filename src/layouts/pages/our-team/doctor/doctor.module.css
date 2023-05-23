@@ -1,0 +1,62 @@
+.doctorsContainer {
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+    margin: 2rem;
+    line-height: 2;
+}
+
+.doctorsContainer img {
+    height: 20rem;
+}
+
+.doctorsContainer:nth-child(3) {
+    border-top: 2px solid #67d1da;
+}
+.doctorsContainer:nth-child(4) {
+    border-top: 2px solid #67d1da;
+}
+
+.doctorsInfo {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    color: #36454f;
+    margin-left: 5rem;
+    justify-content: space-between;
+}
+
+.doctorName {
+    font-size: 2.5rem;
+    color: #01b2c1;
+}
+
+.btn {
+    font-size: 2rem;
+    border: none;
+    background-color: none;
+    color: #67d1da;
+    transition: all 0.2s;
+    align-self: flex-end;
+    justify-items: end;
+}
+
+.btn:hover {
+    cursor: pointer;
+    color: #8adae1;
+}
+img {
+    height: 20rem;
+    border-radius: 3px;
+}
+
+.btnLearnMore {
+    align-self: end;
+    justify-content: end;
+}
+
+.btnLearnMore button {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #36454f;
+}

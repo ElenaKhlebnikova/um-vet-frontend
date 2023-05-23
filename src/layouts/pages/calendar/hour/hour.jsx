@@ -11,7 +11,7 @@ function Hour({ h, day, doctor }) {
     const [hour, setHour] = useState('');
     const [shown, setShown] = useState(false);
 
-    const checkUnavailability = function (day, h, firstWeek) {
+    const checkUnavailability = (day, h, firstWeek) => {
         if (firstWeek === true) {
             const appointment = data
                 .filter((date) => date.date === day[0].toDateString())

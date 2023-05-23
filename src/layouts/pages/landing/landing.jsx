@@ -3,13 +3,10 @@ import { Link } from 'react-router-dom';
 import styles from './landing.module.css';
 import landingImg from '../../../assets/MainPicture.jpeg';
 import Slider from './slider/slider';
-import Header from '../../header/header';
-import Footer from '../../footer/footer';
 
 function Landing() {
     return (
         <>
-            <Header />
             <div className={styles.main_container}>
                 <div className={styles.info_and_btn_container}>
                     <div className={styles.info_container}>
@@ -32,7 +29,6 @@ function Landing() {
                 </div>
             </div>
             <Slider />
-            <Footer />
         </>
     );
 }

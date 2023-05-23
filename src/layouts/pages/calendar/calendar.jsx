@@ -1,9 +1,6 @@
 import { React, useState } from 'react';
 import { useParams } from 'react-router';
-
 import styles from './calendar.module.css';
-import Header from '../../header/header';
-import Footer from '../../footer/footer';
 import useDoctors from '../../../hooks/useDoctors';
 import FirstWeek from './first-week/first-week';
 import NextWeeks from './next-weeks/next-weeks';
@@ -15,8 +12,6 @@ function App() {
 
     return (
         <>
-            <Header />
-
             <div className={styles.calendarMainContainer}>
                 <div className={styles.selectContainer}>
                     <span className={styles.spanDoctor}>Doctor: </span>
@@ -57,7 +52,6 @@ function App() {
                     </div>
                 )}
             </div>
-            <Footer />
         </>
     );
 }

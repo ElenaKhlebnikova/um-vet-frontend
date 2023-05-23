@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useValidate = function (name, phone, rating) {
+const useValidate = (name, phone, rating) => {
     const [errorName, setErrorName] = useState('');
     const [errorPhone, setErrorPhone] = useState(
         'Phone number should be 11 characters long and contain only numbers'

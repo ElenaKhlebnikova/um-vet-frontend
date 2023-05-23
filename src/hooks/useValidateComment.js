@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
-// it should be a validator per form, when you add more form split this hook into different functions for each form
-const useValidateComment = function (name, comment, phone, rating) {
+const useValidateComment = (name, comment, rating) => {
     const [errorName, setErrorName] = useState('');
     const [errorComment, setErrorComment] = useState('');
     const [errorRating, setErrorRating] = useState('');
