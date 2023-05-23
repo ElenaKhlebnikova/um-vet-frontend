@@ -1,21 +1,18 @@
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './make-appointment-form.module.css';
-import useValidate from '../../../../hooks/useValidate';
+import useValidateAppointmentForm from '../../../../hooks/useValidateAppointmentForm';
 import useServiceAndPrice from '../../../../hooks/useServiceAndPrice';
 import useAppointments from '../../../../hooks/useAppointments';
 
 function AppointmentForm({ doctor, hour, date }) {
     const [name, setName] = useState('');
     const [procedure, setProcedure] = useState('Routine check up');
-    const [phone, setPhone] = useState(0);
+    const [phone, setPhone] = useState('');
 
-    // eslint-disable-next-line func-names
-    const { messageName, messagePhone, invalid } = useValidate(
+    const { errorName, errorPhone, invalid } = useValidateAppointmentForm(
         name,
-        '',
-        phone,
-        0
+        phone
     );
 
     const serviceAndPrice = useServiceAndPrice();
@@ -47,7 +44,7 @@ function AppointmentForm({ doctor, hour, date }) {
                             />
                         </label>
                         <span style={{ color: '#f57f95', fontSize: '1.5rem' }}>
-                            {messageName}
+                            {errorName}
                         </span>
                     </div>
                     <div className={styles.formItem}>
@@ -61,7 +58,7 @@ function AppointmentForm({ doctor, hour, date }) {
                             <span
                                 style={{ color: '#f57f95', fontSize: '1.5rem' }}
                             >
-                                {messagePhone}
+                                {errorPhone}
                             </span>
                         </label>
                     </div>

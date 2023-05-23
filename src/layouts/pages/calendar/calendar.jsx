@@ -1,68 +1,21 @@
 import { React, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router';
-import { nextWeeks, firstWeek, workingHours } from '../../../utils';
+
 import styles from './calendar.module.css';
-import AppointmentForm from './make-appointment-form/make-appointment-form';
 import Header from '../../header/header';
 import Footer from '../../footer/footer';
 import useDoctors from '../../../hooks/useDoctors';
-import useAppointments from '../../../hooks/useAppointments';
-
-const mon = firstWeek.filter((day) => day.toDateString().startsWith('Mon'));
-const tue = firstWeek.filter((day) => day.toDateString().startsWith('Tue'));
-const wed = firstWeek.filter((day) => day.toDateString().startsWith('Wed'));
-const thu = firstWeek.filter((day) => day.toDateString().startsWith('Thu'));
-const fri = firstWeek.filter((day) => day.toDateString().startsWith('Fri'));
+import FirstWeek from './first-week/first-week';
+import NextWeeks from './next-weeks/next-weeks';
 
 function App() {
-    const [shown, setShown] = useState(false);
-    const [date, setDate] = useState('');
-    const [hour, setHour] = useState('');
     const [doctor, setDoctor] = useState('');
     const { doctorId } = useParams();
-
     const doctors = useDoctors();
-    const { data } = useAppointments(doctor);
 
-    const checkUnavailability = function (day, h, firstWeek) {
-        if (firstWeek === true) {
-            const appointment = data
-                .filter((date) => date.date === day[0].toDateString())
-                .filter((date) => date.startTime === h).length;
-            return appointment;
-        }
-
-        if (firstWeek === false) {
-            const appointment = data
-                .filter((date) => date.date === day.toDateString())
-                .filter((date) => date.startTime === h).length;
-            return appointment;
-        }
-    };
     return (
         <>
             <Header />
-            {shown && (
-                <>
-                    <button
-                        type="button"
-                        className={styles.close}
-                        onClick={() => setShown(false)}
-                    >
-                        <FontAwesomeIcon
-                            icon={faXmark}
-                            style={{
-                                color: '#01b2c1',
-                                height: '5rem',
-                                marginTop: '2rem',
-                            }}
-                        />
-                    </button>
-                    <AppointmentForm doctor={doctor} hour={hour} date={date} />
-                </>
-            )}
 
             <div className={styles.calendarMainContainer}>
                 <div className={styles.selectContainer}>
@@ -90,7 +43,7 @@ function App() {
                     </select>
                 </div>
 
-                {doctor !== '' && !shown && (
+                {doctor !== '' && (
                     <div>
                         <div className={styles.headOfTheTable}>
                             <div>Mon</div>
@@ -99,273 +52,8 @@ function App() {
                             <div>Thu</div>
                             <div>Fri</div>
                         </div>
-
-                        <div className={styles.bodyOfTheTable}>
-                            <div
-                                className={
-                                    mon.length !== 0 && styles.dateContainer
-                                }
-                            >
-                                <div>
-                                    {mon.length !== 0
-                                        ? mon[0].toDateString().slice(3, -4)
-                                        : ''}
-                                </div>
-                                <div className={styles.hoursContainer}>
-                                    {mon.length !== 0 &&
-                                        workingHours.map((h) => (
-                                            <button
-                                                key={h + mon}
-                                                disabled={
-                                                    checkUnavailability(
-                                                        mon,
-                                                        h,
-                                                        true
-                                                    ) && true
-                                                }
-                                                type="button"
-                                                className={
-                                                    !checkUnavailability(
-                                                        mon,
-                                                        h,
-                                                        true
-                                                    )
-                                                        ? styles.available
-                                                        : styles.notAvailable
-                                                }
-                                                onClick={() => {
-                                                    setShown(true);
-                                                    setDate(
-                                                        mon[0].toDateString()
-                                                    );
-                                                    setHour(h);
-                                                }}
-                                            >
-                                                {h}
-                                            </button>
-                                        ))}
-                                </div>
-                            </div>
-                            <div
-                                className={
-                                    tue.length !== 0 && styles.dateContainer
-                                }
-                            >
-                                <div>
-                                    {tue.length !== 0
-                                        ? tue[0].toDateString().slice(3, -4)
-                                        : ''}
-                                </div>
-                                <div className={styles.hoursContainer}>
-                                    {tue.length !== 0 &&
-                                        workingHours.map((h) => (
-                                            <button
-                                                key={h + tue}
-                                                disabled={
-                                                    checkUnavailability(
-                                                        thu,
-                                                        h,
-                                                        true
-                                                    ) && true
-                                                }
-                                                type="button"
-                                                className={
-                                                    !checkUnavailability(
-                                                        tue,
-                                                        h,
-                                                        true
-                                                    )
-                                                        ? styles.available
-                                                        : styles.notAvailable
-                                                }
-                                                onClick={() => {
-                                                    setShown(true);
-                                                    setHour(h);
-                                                    setDate(
-                                                        tue[0].toDateString()
-                                                    );
-                                                }}
-                                            >
-                                                {h}
-                                            </button>
-                                        ))}
-                                </div>
-                            </div>
-                            <div
-                                className={
-                                    wed.length !== 0 && styles.dateContainer
-                                }
-                            >
-                                <div>
-                                    {wed.length
-                                        ? wed[0].toDateString().slice(3, -4)
-                                        : ''}
-                                </div>
-                                <div className={styles.hoursContainer}>
-                                    {wed.length !== 0 &&
-                                        workingHours.map((h) => (
-                                            <button
-                                                key={h + wed}
-                                                disabled={
-                                                    checkUnavailability(
-                                                        wed,
-                                                        h,
-                                                        true
-                                                    ) && true
-                                                }
-                                                type="button"
-                                                className={
-                                                    !checkUnavailability(
-                                                        wed,
-                                                        h,
-                                                        true
-                                                    )
-                                                        ? styles.available
-                                                        : styles.notAvailabl
-                                                }
-                                                value={h}
-                                                onClick={() => {
-                                                    setShown(true);
-                                                    setHour(h);
-                                                    setDate(
-                                                        wed[0].toDateString()
-                                                    );
-                                                }}
-                                            >
-                                                {h}
-                                            </button>
-                                        ))}
-                                </div>
-                            </div>
-                            <div
-                                className={
-                                    thu.length !== 0 && styles.dateContainer
-                                }
-                            >
-                                <div>
-                                    {thu.length
-                                        ? thu[0].toDateString().slice(3, -4)
-                                        : ''}
-                                </div>
-                                <div className={styles.hoursContainer}>
-                                    {thu.length !== 0 &&
-                                        workingHours.map((h) => (
-                                            <button
-                                                key={h + thu}
-                                                disabled={
-                                                    checkUnavailability(
-                                                        thu,
-                                                        h,
-                                                        true
-                                                    ) && true
-                                                }
-                                                type="button"
-                                                className={
-                                                    !checkUnavailability(
-                                                        thu,
-                                                        h,
-                                                        true
-                                                    )
-                                                        ? styles.available
-                                                        : styles.notAvailable
-                                                }
-                                                value={h}
-                                                onClick={() => {
-                                                    setShown(true);
-                                                    setHour(h);
-                                                    setDate(
-                                                        thu[0].toDateString()
-                                                    );
-                                                }}
-                                            >
-                                                {h}
-                                            </button>
-                                        ))}
-                                </div>
-                            </div>
-                            <div
-                                className={
-                                    fri.length !== 0 && styles.dateContainer
-                                }
-                            >
-                                <div>
-                                    {fri.length
-                                        ? fri[0].toDateString().slice(3, -4)
-                                        : ' '}
-                                </div>
-                                <div className={styles.hoursContainer}>
-                                    {fri.length !== 0 &&
-                                        workingHours.map((h) => (
-                                            <button
-                                                key={h + fri}
-                                                disabled={
-                                                    checkUnavailability(
-                                                        fri,
-                                                        h,
-                                                        true
-                                                    ) && true
-                                                }
-                                                type="button"
-                                                className={
-                                                    !checkUnavailability(
-                                                        fri,
-                                                        h,
-                                                        true
-                                                    )
-                                                        ? styles.available
-                                                        : styles.notAvailable
-                                                }
-                                                onClick={() => {
-                                                    setShown(true);
-                                                    setHour(h);
-                                                    setDate(
-                                                        fri[0].toDateString()
-                                                    );
-                                                }}
-                                            >
-                                                {h}
-                                            </button>
-                                        ))}
-                                </div>
-                            </div>
-
-                            {nextWeeks.map((day) => (
-                                <div key={day} className={styles.dateContainer}>
-                                    <div>{day.toDateString().slice(3, -4)}</div>
-                                    <div className={styles.hoursContainer}>
-                                        {workingHours.map((h) => (
-                                            <button
-                                                key={h + day}
-                                                disabled={
-                                                    checkUnavailability(
-                                                        day,
-                                                        h,
-                                                        false
-                                                    ) && true
-                                                }
-                                                type="button"
-                                                className={
-                                                    !checkUnavailability(
-                                                        day,
-                                                        h,
-                                                        false
-                                                    )
-                                                        ? styles.available
-                                                        : styles.notAvailable
-                                                }
-                                                onClick={() => {
-                                                    setShown(true);
-                                                    setDate(day.toDateString());
-                                                    setHour(h);
-                                                }}
-                                            >
-                                                {h}
-                                            </button>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                        <FirstWeek doctor={doctor} />
+                        <NextWeeks doctor={doctor} />
                     </div>
                 )}
             </div>
