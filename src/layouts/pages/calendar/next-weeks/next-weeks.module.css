@@ -1,0 +1,8 @@
+.bodyOfTheTable {
+    display: grid;
+    font-size: 2rem;
+    font-weight: 400;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    margin: 3rem;
+}

@@ -18,7 +18,7 @@ const DIRECTIONS = {
 function Slider() {
     const [slide, setSlide] = useState(1);
 
-    const handleSlides = function (direction) {
+    const handleSlides = (direction) => {
         if (slide === 3 && direction === DIRECTIONS.INC) {
             setSlide(1);
         } else if (slide === 1 && direction === DIRECTIONS.DEC) {

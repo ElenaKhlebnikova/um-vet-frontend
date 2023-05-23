@@ -20,7 +20,7 @@ const workingHours = [
 ];
 
 // function to get days in a month starting from the current day
-function getDaysInMonth(month, year) {
+const getDaysInMonth = (month, year) => {
     const date = new Date(year, month, day);
 
     if (date.getDate() === 1) {
@@ -60,7 +60,7 @@ function getDaysInMonth(month, year) {
 
         return days;
     });
-}
+};
 
 // return values from the function itself and do not call functions after exporting things
 export { nextWeeks, firstWeek, workingHours };

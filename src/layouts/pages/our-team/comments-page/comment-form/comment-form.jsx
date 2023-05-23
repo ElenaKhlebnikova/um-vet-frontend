@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router';
 import styles from './comment-form.module.css';
-import useValidate from '../../../../../hooks/useValidate';
+
 import useComments from '../../../../../hooks/useComments';
+import useValidateComment from '../../../../../hooks/useValidateComment';
 
 function CommentForm() {
     const [comment, setComment] = useState('');
@@ -13,14 +14,8 @@ function CommentForm() {
     const doctorId = useParams();
     const date = new Date(Date.now()).toDateString();
 
-    // passing 0 instead of phone number because phone number is not used in this form
-
-    const { messageName, messageComment, messageRating, invalid } = useValidate(
-        name,
-        comment,
-        0,
-        rating
-    );
+    const { errorName, errorComment, errorRating, invalid } =
+        useValidateComment(name, comment, 0, rating);
 
     const { createComment } = useComments();
 
@@ -50,7 +45,7 @@ function CommentForm() {
                         />
                     </label>
                     <span style={{ color: '#f57f95', fontSize: '1.5rem' }}>
-                        {messageName}
+                        {errorName}
                     </span>
                 </div>
                 <div className={styles.formItem}>
@@ -65,7 +60,7 @@ function CommentForm() {
                         />
                     </label>
                     <span style={{ color: '#f57f95', fontSize: '1.5rem' }}>
-                        {messageComment}
+                        {errorComment}
                     </span>
                 </div>
                 <div className={styles.rating}>
@@ -123,7 +118,7 @@ function CommentForm() {
                     </div>
                     <div style={{ margin: '2rem 2rem' }}>
                         <span style={{ color: '#f57f95', fontSize: '1.5rem' }}>
-                            {messageRating}
+                            {errorRating}
                         </span>
                     </div>
                 </div>

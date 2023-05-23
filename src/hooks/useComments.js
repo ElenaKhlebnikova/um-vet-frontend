@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getComments, createComment } from '../api';
 
-const useComments = function (id) {
+const useComments = (id) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getServiceAndPrice } from '../api';
 
-const useServiceAndPrice = function () {
+const useServiceAndPrice = () => {
     const [data, setData] = useState([]);
     const fetchData = () => {
         getServiceAndPrice()

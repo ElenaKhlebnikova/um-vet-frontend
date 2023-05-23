@@ -8,8 +8,6 @@ import {
     faGraduationCap,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import Header from '../../../header/header';
-import Footer from '../../../footer/footer';
 import styles from './comments-page.module.css';
 import CommentForm from './comment-form/comment-form';
 import useDoctors from '../../../../hooks/useDoctors';
@@ -22,7 +20,6 @@ function CommentsPage() {
 
     return (
         <>
-            <Header />
             <Link to="/our-team">
                 <button className={styles.backBtn} type="button">
                     &larr; Go back{' '}
@@ -135,7 +132,6 @@ function CommentsPage() {
                         </div>
                     ))}
             </div>
-            <Footer />
         </>
     );
 }

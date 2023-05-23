@@ -8,21 +8,18 @@ import {
     faLocationDot,
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './contact.module.css';
-import Header from '../../header/header';
-import Footer from '../../footer/footer';
 import mapPin from '../../../assets/map-pin-soild.png';
 
 function Contact() {
-    function getIcon() {
+    const getIcon = () => {
         return L.icon({
             iconUrl: mapPin,
             iconSize: [30, 50],
         });
-    }
+    };
 
     return (
         <>
-            <Header />
             <div className={styles.mainContainer}>
                 <div className={styles.mapContainer}>
                     <MapContainer
@@ -82,7 +79,6 @@ function Contact() {
                     </ul>
                 </div>
             </div>
-            <Footer />
         </>
     );
 }

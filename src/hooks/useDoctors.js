@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getDoctors } from '../api';
 
-const useDoctors = function (id) {
+const useDoctors = (id) => {
     const [data, setData] = useState([]);
     const fetchData = (doctorId) => {
         if (doctorId) {

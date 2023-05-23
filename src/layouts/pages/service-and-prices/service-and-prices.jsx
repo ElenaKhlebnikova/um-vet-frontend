@@ -1,14 +1,13 @@
 import React from 'react';
-import Header from '../../header/header';
+
 import styles from './service-and-price.module.css';
-import Footer from '../../footer/footer';
+
 import useServiceAndPrice from '../../../hooks/useServiceAndPrice';
 
 function ServiceAndPrice() {
     const serviceAndPrice = useServiceAndPrice();
     return (
         <>
-            <Header />
             <div className={styles.tableMainContainer}>
                 <div />
                 <div className={styles.table}>
@@ -30,7 +29,6 @@ function ServiceAndPrice() {
                 </div>
                 <div />
             </div>
-            <Footer />
         </>
     );
 }
