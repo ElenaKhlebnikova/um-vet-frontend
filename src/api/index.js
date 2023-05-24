@@ -1,4 +1,4 @@
-const URL = 'https://umvetapi.onrender.com/';
+const URL = 'https://umvetapi.onrender.com';
 
 const headers = {
     'Content-Type': 'application/json',
