@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../assets/logo.png';
 function Header() {
-    const [menuSmallHidden, setMenuSmallHidden] = useState(false);
+    const [menuSmallHidden, setMenuSmallHidden] = useState(true);
     const screenWidth = window.screen.width;
 
     const handleNav = () => {
@@ -15,7 +15,7 @@ function Header() {
     };
     return (
         <>
-            {menuSmallHidden && (
+            {(screenWidth <= 700) & menuSmallHidden && (
                 <div className={styles.headerSmall}>
                     <button
                         className={styles.navBtn}
@@ -27,7 +27,9 @@ function Header() {
             )}
             <div
                 className={
-                    menuSmallHidden ? styles.hidden : styles.header_container
+                    screenWidth <= 700 && menuSmallHidden
+                        ? styles.hidden
+                        : styles.header_container
                 }
             >
                 {screenWidth < 700 && (
