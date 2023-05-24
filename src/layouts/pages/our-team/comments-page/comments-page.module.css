@@ -115,12 +115,14 @@
     font-size: 5rem;
     color: #67d1da;
     transition: all.2s;
+    font-size: 2.5rem;
 }
 
 .starIconActive {
     margin: 0rem 1rem;
     font-size: 5rem;
     color: #01b2c1;
+    font-size: 2.5rem;
 }
 
 .starIconInactive:hover {
@@ -172,4 +174,43 @@ img {
 .backBtn:hover {
     cursor: pointer;
     color: #67d1da;
+}
+
+@media screen and (max-width: 700px) {
+    .mainContainer {
+        display: flex;
+        flex-direction: column;
+        margin: 5rem 1rem;
+        width: 100%;
+        align-self: center;
+    }
+
+    .mainContainer:first-child {
+        margin: 2rem;
+    }
+
+    .about {
+        font-size: 2rem;
+        width: 95%;
+    }
+
+    .btn {
+        font-size: 1.5rem;
+        align-self: flex-start;
+    }
+
+    .commentContainer {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        margin: 1rem;
+    }
+
+    .starIconInactive {
+        font-size: 2rem;
+    }
+
+    .starIconActive {
+        font-size: 2 rem;
+    }
 }

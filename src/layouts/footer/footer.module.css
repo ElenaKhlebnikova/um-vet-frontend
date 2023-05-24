@@ -7,7 +7,6 @@
     font-size: 1.5rem;
     color: #fff;
     align-self: start;
-    overflow: hidden;
 }
 .footerMainContainer img {
     height: 10rem;
@@ -15,7 +14,6 @@
 }
 
 .internalLinks {
-    overflow: hidden;
     text-align: center;
 }
 
@@ -58,4 +56,37 @@
 }
 .iconLinksContainer:first-child {
     margin-right: 2rem;
+}
+
+.icon {
+    font-size: 5rem;
+}
+
+@media screen and (max-width: 700px) {
+    .footerMainContainer {
+        margin-top: 20rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .externalLinksContainer {
+        width: 100%;
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nameContainer {
+        align-self: center;
+        margin-right: 0;
+    }
+    .iconLinksContainer {
+        display: flex;
+        align-self: center;
+        margin: 5rem 0 5rem 0;
+    }
+
+    .icon {
+        font-size: 3rem;
+    }
 }

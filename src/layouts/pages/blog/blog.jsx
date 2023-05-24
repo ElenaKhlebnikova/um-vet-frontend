@@ -56,7 +56,9 @@ function Blog() {
                                         <h3 className={styles.postTitle}>
                                             {post.title}
                                         </h3>
-                                        <p>{post.description}</p>
+                                        <p className={styles.description}>
+                                            {post.description}
+                                        </p>
                                         <Link to={`/blog/${post._id}`}>
                                             <button
                                                 type="button"

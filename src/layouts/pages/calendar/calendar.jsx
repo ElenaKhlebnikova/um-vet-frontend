@@ -4,11 +4,13 @@ import styles from './calendar.module.css';
 import useDoctors from '../../../hooks/useDoctors';
 import FirstWeek from './first-week/first-week';
 import NextWeeks from './next-weeks/next-weeks';
-
+import WeeksSmallScreen from './weeks-small-screen/weeks-small-screen';
 function App() {
     const [doctor, setDoctor] = useState('');
     const { doctorId } = useParams();
     const doctors = useDoctors();
+
+    const screenWidth = window.screen.width;
 
     return (
         <>
@@ -40,15 +42,22 @@ function App() {
 
                 {doctor !== '' && (
                     <div>
-                        <div className={styles.headOfTheTable}>
-                            <div>Mon</div>
-                            <div>Tue</div>
-                            <div>Wed</div>
-                            <div>Thu</div>
-                            <div>Fri</div>
-                        </div>
-                        <FirstWeek doctor={doctor} />
-                        <NextWeeks doctor={doctor} />
+                        {screenWidth > 600 ? (
+                            <>
+                                <div className={styles.headOfTheTable}>
+                                    <div>Mon</div>
+                                    <div>Tue</div>
+                                    <div>Wed</div>
+                                    <div>Thu</div>
+                                    <div>Fri</div>
+                                </div>
+
+                                <FirstWeek doctor={doctor} />
+                                <NextWeeks doctor={doctor} />
+                            </>
+                        ) : (
+                            <WeeksSmallScreen doctor={doctor} />
+                        )}
                     </div>
                 )}
             </div>

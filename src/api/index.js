@@ -9,13 +9,13 @@ const getServiceAndPrice = () =>
     fetch(`${URL}/service-and-prices`, { method: 'GET', headers });
 
 const getComments = (id) =>
-    fetch(`${URL}/comments?doctorId=${id}`, { method: 'GET', headers });
+    fetch(`${URL}/comments/${id}`, { method: 'GET', headers });
 
 const getDoctors = (id) => {
     if (!id) {
         return fetch(`${URL}/doctors`, { method: 'GET', headers });
     } else {
-        return fetch(`${URL}/doctors?doctorId=${id}`, {
+        return fetch(`${URL}/doctors/${id}`, {
             method: 'GET',
             headers,
         });
@@ -26,7 +26,7 @@ const getAppointments = (id) => {
     if (!id) {
         return fetch(`${URL}/appointments`, { method: 'GET', headers });
     } else {
-        return fetch(`${URL}/appointments?doctorId=${id}`, {
+        return fetch(`${URL}/appointments/${id}`, {
             method: 'GET',
             headers,
         });
@@ -37,7 +37,7 @@ const getBlog = (id) => {
     if (!id) {
         return fetch(`${URL}/blog`, { method: 'GET', headers });
     } else {
-        return fetch(`${URL}/blog?postId=${id}`, { method: 'GET', headers });
+        return fetch(`${URL}/blog/${id}`, { method: 'GET', headers });
     }
 };
 

@@ -1,0 +1,47 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-self: center;
+}
+.dropdown_container {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
+.selectContainer {
+    display: flex;
+    align-items: center;
+    margin: 10rem 0 5rem 5rem;
+}
+
+.spanDate {
+    color: #36454f;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-right: 2rem;
+}
+.select {
+    color: #36454f;
+    font-size: inherit;
+    background-color: #d2f0f3;
+    border: 0.2rem solid #d2f0f3;
+    width: 25%;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+}
+
+.select:focus {
+    border: 0.2rem solid #fff;
+}
+
+.select:hover {
+    cursor: pointer;
+}
+
+.options:hover {
+    cursor: pointer;
+    color: #d2f0f3;
+}

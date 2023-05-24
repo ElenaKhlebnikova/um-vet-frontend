@@ -5,7 +5,12 @@ import catImg from '../../../../../assets/cat_third_slide.jpg';
 
 function ThirdSlide() {
     return (
-        <div className={styles.container_slide}>
+        <div
+            className={[
+                styles.container_slide,
+                styles.container_slide_third,
+            ].join(' ')}
+        >
             <div className={styles.pic_container_third_slide}>
                 <img
                     className={styles.third_slide_pic}

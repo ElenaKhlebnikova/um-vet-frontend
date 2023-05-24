@@ -12,7 +12,12 @@ import buildingImg from '../../../../../assets/building.png';
 
 function FirstSlide() {
     return (
-        <div className={styles.container_slide}>
+        <div
+            className={[
+                styles.container_slide,
+                styles.container_slide_first,
+            ].join(' ')}
+        >
             <div className={styles.pic_container_first_slide}>
                 <img
                     className={styles.first_slide_pic}

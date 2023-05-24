@@ -19,9 +19,6 @@
     width: 100%;
     color: #36454f;
     font-size: 2rem;
-    justify-content: center;
-    justify-self: center;
-    justify-items: center;
 }
 
 .icon {
@@ -29,4 +26,15 @@
     height: 2rem;
     margin-right: 0.5rem;
     align-self: center;
+}
+
+@media screen and (max-width: 700px) {
+    .mainContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contactInformation li {
+        display: flex;
+    }
 }
