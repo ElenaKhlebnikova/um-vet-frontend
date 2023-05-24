@@ -4,7 +4,7 @@ const headers = {
     'Content-Type': 'application/json',
 };
 
-// All GET REQUESTS..
+// All GET REQUESTS
 const getServiceAndPrice = () =>
     fetch(`${URL}/service-and-prices`, { method: 'GET', headers });
 
