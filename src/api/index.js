@@ -1,10 +1,10 @@
-const URL = 'http://localhost:5000';
+const URL = 'https://umvetapi.onrender.com/';
 
 const headers = {
     'Content-Type': 'application/json',
 };
 
-// All GET REQUESTS
+// All GET REQUESTS..
 const getServiceAndPrice = () =>
     fetch(`${URL}/service-and-prices`, { method: 'GET', headers });
 
