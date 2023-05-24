@@ -5,6 +5,7 @@ import { workingHours } from '../../../../utils';
 import PropTypes from 'prop-types';
 
 function Day({ day, doctor }) {
+    console.log(day);
     return (
         <div key={day} className={styles.dateContainer}>
             <div>{day.toDateString().slice(3, -4)}</div>

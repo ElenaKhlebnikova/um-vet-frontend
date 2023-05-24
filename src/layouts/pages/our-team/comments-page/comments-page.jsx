@@ -85,7 +85,6 @@ function CommentsPage() {
                                                 ? styles.starIconActive
                                                 : styles.starIconInactive
                                         }
-                                        style={{ fontSize: '2.5rem' }}
                                         icon={faStar}
                                     />
                                     <FontAwesomeIcon
@@ -94,7 +93,6 @@ function CommentsPage() {
                                                 ? styles.starIconActive
                                                 : styles.starIconInactive
                                         }
-                                        style={{ fontSize: '2.5rem' }}
                                         icon={faStar}
                                     />
                                     <FontAwesomeIcon
@@ -103,7 +101,6 @@ function CommentsPage() {
                                                 ? styles.starIconActive
                                                 : styles.starIconInactive
                                         }
-                                        style={{ fontSize: '2.5rem' }}
                                         icon={faStar}
                                     />
                                     <FontAwesomeIcon
@@ -112,7 +109,6 @@ function CommentsPage() {
                                                 ? styles.starIconActive
                                                 : styles.starIconInactive
                                         }
-                                        style={{ fontSize: '2.5rem' }}
                                         icon={faStar}
                                     />
                                     <FontAwesomeIcon

@@ -29,18 +29,20 @@ function Footer() {
                         <FontAwesomeIcon
                             icon={faHeart}
                             style={{ color: '#f5f5f5' }}
-                        />{' '}
+                        />
                         &nbsp; by Elena Khlebnikova
                     </div>
                 </div>
                 <div className={styles.iconLinksContainer}>
                     <FontAwesomeIcon
+                        className={styles.icon}
                         icon={faGithub}
-                        style={{ color: '#f5f5f5', height: '5rem' }}
+                        style={{ color: '#f5f5f5' }}
                     />
                     <FontAwesomeIcon
+                        className={styles.icon}
                         icon={faLinkedin}
-                        style={{ color: '#f5f5f5', height: '5rem' }}
+                        style={{ color: '#f5f5f5' }}
                     />
                 </div>
             </div>

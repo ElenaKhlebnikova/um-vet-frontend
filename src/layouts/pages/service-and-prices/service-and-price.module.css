@@ -24,3 +24,18 @@ th {
     text-align: start;
     padding: 1.5rem 1rem 1.5rem 1rem;
 }
+
+@media screen and (max-width: 700px) {
+    .tableMainContainer {
+        width: 95%;
+        display: flex;
+        margin: 2rem;
+        font-size: 2.5rem;
+        color: #36454f;
+    }
+
+    .table {
+        justify-self: center;
+        width: 100%;
+    }
+}

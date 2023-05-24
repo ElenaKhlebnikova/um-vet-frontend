@@ -120,3 +120,17 @@
 .starIconActive:hover {
     cursor: pointer;
 }
+
+@media screen and (max-width: 700px) {
+    .starIconInactive {
+        font-size: 2rem;
+    }
+
+    .starIconActive {
+        font-size: 2rem;
+    }
+
+    .commentContainer {
+        margin: 2rem;
+    }
+}

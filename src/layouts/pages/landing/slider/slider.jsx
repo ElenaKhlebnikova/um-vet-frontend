@@ -11,8 +11,8 @@ import SecondSlide from './slides/second_slide';
 import ThirdSlide from './slides/third_slide';
 
 const DIRECTIONS = {
-    INC: 'inc',
-    DEC: 'dec',
+    INC: 1,
+    DEC: -1,
 };
 
 function Slider() {
@@ -33,7 +33,7 @@ function Slider() {
             <div className={styles.btn}>
                 <button
                     type="button"
-                    onClick={() => handleSlides(DIRECTIONS.INC)}
+                    onClick={() => handleSlides(DIRECTIONS.DEC)}
                 >
                     <FontAwesomeIcon
                         className={
@@ -52,7 +52,7 @@ function Slider() {
                 {slide === 2 && <SecondSlide />}
                 {slide === 3 && <ThirdSlide />}
             </div>
-            <button type="button" onClick={() => handleSlides(DIRECTIONS.DEC)}>
+            <button type="button" onClick={() => handleSlides(DIRECTIONS.INC)}>
                 <div className={styles.btn}>
                     <FontAwesomeIcon
                         className={
@@ -74,6 +74,7 @@ function Slider() {
                             : styles.icon_dot_blue_dark
                     }
                     icon={faCircle}
+                    onClick={() => setSlide(1)}
                 />
                 <FontAwesomeIcon
                     className={
@@ -82,6 +83,7 @@ function Slider() {
                             : styles.icon_dot_blue_dark
                     }
                     icon={faCircle}
+                    onClick={() => setSlide(2)}
                 />
                 <FontAwesomeIcon
                     className={
@@ -90,6 +92,7 @@ function Slider() {
                             : styles.icon_dot_blue_dark
                     }
                     icon={faCircle}
+                    onClick={() => setSlide(3)}
                 />
             </div>
         </div>

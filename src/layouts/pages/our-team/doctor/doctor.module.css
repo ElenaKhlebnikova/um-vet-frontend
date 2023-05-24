@@ -60,3 +60,15 @@ img {
     font-size: 1.5rem;
     color: #36454f;
 }
+
+@media screen and (max-width: 500px) {
+    .doctorsContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .doctorsContainer img {
+        align-self: center;
+    }
+}

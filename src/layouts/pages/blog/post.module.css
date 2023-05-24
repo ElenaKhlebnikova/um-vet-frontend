@@ -40,3 +40,27 @@
     cursor: pointer;
     color: #67d1da;
 }
+
+@media screen and (max-width: 1000px) {
+    .postContainer {
+        margin: 5rem 5rem;
+    }
+    .generalInfoContainer {
+        height: 95vh;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        margin: 2rem 1rem;
+        color: #fff;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin: 2rem 1rem;
+    }
+
+    .contentContainer {
+        margin: 1rem 2rem;
+        font-size: 2rem;
+    }
+}

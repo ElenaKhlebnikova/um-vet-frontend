@@ -60,21 +60,21 @@ function Contact() {
                                 className={styles.icon}
                                 icon={faPhone}
                             />
-                            +49 240145
+                            <span>+49 240145</span>
                         </li>
                         <li className={styles.listItem}>
                             <FontAwesomeIcon
                                 className={styles.icon}
                                 icon={faAt}
                             />
-                            elenano555@gmail.com
+                            <span>elenano555@gmail.com</span>
                         </li>
                         <li className={styles.listItem}>
                             <FontAwesomeIcon
                                 className={styles.icon}
                                 icon={faLocationDot}
                             />
-                            Ellen-Epstein Str. 21233, 10559 Berlin
+                            <span>Ellen-Epstein Str. 21233, 10559 Berlin</span>
                         </li>
                     </ul>
                 </div>

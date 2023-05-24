@@ -63,5 +63,5 @@ const getDaysInMonth = (month, year) => {
 };
 
 // return values from the function itself and do not call functions after exporting things
-export { nextWeeks, firstWeek, workingHours };
+export { nextWeeks, firstWeek, workingHours, days };
 getDaysInMonth(month, year, day);

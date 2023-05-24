@@ -11,6 +11,10 @@
     color: #8ccad0;
 }
 
+.hidden {
+    display: none;
+}
+
 .btn_and_user_container {
     margin-right: 2rem;
     display: flex;
@@ -45,4 +49,45 @@
 .user:hover {
     cursor: pointer;
     color: #ddd;
+}
+
+.headerSmall {
+    display: flex;
+    width: 100%;
+}
+.navBtn {
+    color: #8ccad0;
+    font-size: 3rem;
+    margin-left: 2rem;
+    height: 10rem;
+    align-self: end;
+    margin-right: 2rem;
+}
+
+@media screen and (max-width: 900px) {
+    .header_container {
+        font-size: 1.5rem;
+    }
+    .logo {
+        height: 7rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .header_container {
+        height: 100vh;
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        background-color: #fff;
+        overflow: hidden;
+        justify-content: space-evenly;
+        z-index: 11111111111;
+    }
+
+    .logo {
+        height: 7rem;
+    }
 }

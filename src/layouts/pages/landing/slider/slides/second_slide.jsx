@@ -5,7 +5,12 @@ import teamImg from '../../../../../assets/team.jpg';
 
 function SecondSlide() {
     return (
-        <div className={styles.container_slide}>
+        <div
+            className={[
+                styles.container_slide,
+                styles.container_slide_second,
+            ].join(' ')}
+        >
             <div className={styles.info_container}>
                 <p className={styles.heading}>Our team</p>
                 <p className={styles.text}>
