@@ -1,0 +1,26 @@
+.mainContainer {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background: conic-gradient(#0000 10%, #afdade);
+    -webkit-mask: radial-gradient(
+        farthest-side,
+        #0000 calc(100% - 8px),
+        #000 0
+    );
+    animation: s3 1s infinite linear;
+}
+@keyframes s3 {
+    to {
+        transform: rotate(1turn);
+    }
+}

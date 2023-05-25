@@ -11,8 +11,8 @@ import SecondSlide from './slides/second_slide';
 import ThirdSlide from './slides/third_slide';
 
 function Slider() {
-    const [touchStart, setTouchStart] = useState(0);
-    const [touchEnd, setTouchEnd] = useState(0);
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
     const [slide, setSlide] = useState(1);
     const minSwipeDistance = 50;
 
@@ -22,7 +22,7 @@ function Slider() {
     };
 
     const onTouchStart = (e) => {
-        setTouchEnd(0);
+        setTouchEnd(null);
         setTouchStart(e.targetTouches[0].clientX);
     };
 
@@ -78,23 +78,23 @@ function Slider() {
             <div>
                 {slide === 1 && (
                     <FirstSlide
-                        onTouchStart={() => onTouchStart()}
-                        onTouchMove={() => onTouchMove()}
-                        onTouchEnd={() => onTouchEnd()}
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
                     />
                 )}
                 {slide === 2 && (
                     <SecondSlide
-                        onTouchStart={() => onTouchStart()}
-                        onTouchMove={() => onTouchMove()}
-                        onTouchEnd={() => onTouchEnd()}
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
                     />
                 )}
                 {slide === 3 && (
                     <ThirdSlide
-                        onTouchStart={() => onTouchStart()}
-                        onTouchMove={() => onTouchMove()}
-                        onTouchEnd={() => onTouchEnd()}
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
                     />
                 )}
             </div>

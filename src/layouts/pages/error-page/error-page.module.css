@@ -1,0 +1,30 @@
+.mainContainer {
+    width: 100%;
+    margin: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.msg {
+    font-size: 5rem;
+    font-weight: 700;
+    justify-self: center;
+}
+
+@media screen and (max-width: 900px) {
+    .mainContainer {
+        width: 80%;
+        margin: 10rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .mainContainer {
+        width: 50%;
+        margin: 10rem;
+    }
+    .img {
+        height: 20rem;
+    }
+}

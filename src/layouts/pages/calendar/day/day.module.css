@@ -11,3 +11,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+.day {
+    font-size: 2rem;
+}

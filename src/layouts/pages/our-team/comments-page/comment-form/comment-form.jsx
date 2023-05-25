@@ -4,8 +4,8 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router';
 import styles from './comment-form.module.css';
 
-import useComments from '../../../../../hooks/useComments';
-import useValidateComment from '../../../../../hooks/useValidateComment';
+import useComments from '../../../../../hooks/use-comments';
+import useValidateComment from '../../../../../hooks/use-validate-comment';
 
 function CommentForm() {
     const [comment, setComment] = useState('');

@@ -5,7 +5,7 @@ import Day from './../day/day';
 import PropTypes from 'prop-types';
 function WeeksSmallScreen({ doctor }) {
     const [day, setDay] = useState('');
-    console.log(day);
+
     return (
         <div className={styles.mainContainer}>
             <div className={styles.selectContainer}>
