@@ -1,9 +1,9 @@
 import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './make-appointment-form.module.css';
-import useValidateAppointmentForm from '../../../../hooks/useValidateAppointmentForm';
-import useServiceAndPrice from '../../../../hooks/useServiceAndPrice';
-import useAppointments from '../../../../hooks/useAppointments';
+import useValidateAppointmentForm from '../../../../hooks/use-validate-appointment-form';
+import useServiceAndPrice from '../../../../hooks/use-service-and-price';
+import useAppointments from '../../../../hooks/use-appointments';
 
 function AppointmentForm({ doctor, hour, date }) {
     const [name, setName] = useState('');
@@ -43,9 +43,7 @@ function AppointmentForm({ doctor, hour, date }) {
                                 placeholder="Please enter your name"
                             />
                         </label>
-                        <span style={{ color: '#f57f95', fontSize: '1.5rem' }}>
-                            {errorName}
-                        </span>
+                        <span className={styles.errorMessage}>{errorName}</span>
                     </div>
                     <div className={styles.formItem}>
                         <label>
@@ -55,9 +53,7 @@ function AppointmentForm({ doctor, hour, date }) {
                                 placeholder="Please enter your phone"
                                 onChange={(e) => setPhone(e.target.value)}
                             />
-                            <span
-                                style={{ color: '#f57f95', fontSize: '1.5rem' }}
-                            >
+                            <span className={styles.errorMessage}>
                                 {errorPhone}
                             </span>
                         </label>

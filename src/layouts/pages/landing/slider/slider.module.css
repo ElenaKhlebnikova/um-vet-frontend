@@ -26,6 +26,7 @@
     align-items: center;
     justify-items: center;
     margin: 3rem 0 3rem 0;
+    width: 80%;
 }
 button {
     background: none;

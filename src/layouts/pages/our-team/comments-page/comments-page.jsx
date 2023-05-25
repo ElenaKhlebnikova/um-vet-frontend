@@ -10,12 +10,14 @@ import {
 import { Link } from 'react-router-dom';
 import styles from './comments-page.module.css';
 import CommentForm from './comment-form/comment-form';
-import useDoctors from '../../../../hooks/useDoctors';
-import useComments from '../../../../hooks/useComments';
+import useDoctors from '../../../../hooks/use-doctors';
+import useComments from '../../../../hooks/use-comments';
+import Loader from '../../../../components/loader';
 
 function CommentsPage() {
     const { doctorId } = useParams();
-    const doctor = useDoctors(doctorId);
+    const doctor = useDoctors(doctorId).data;
+    const loading = useDoctors(doctorId).loading;
     const { comments } = useComments(doctorId);
 
     return (
@@ -25,49 +27,61 @@ function CommentsPage() {
                     &larr; Go back{' '}
                 </button>
             </Link>
-            <div className={styles.mainContainer}>
-                <div>
-                    <img
-                        className={styles.img}
-                        src={doctor.img}
-                        alt={doctor.name}
-                    />
-                </div>
-                <div className={styles.doctorsInfo}>
-                    <ul className={styles.generalInfo}>
-                        <li style={{ fontWeight: 700, fontSize: '5rem' }}>
-                            {doctor.name}
-                        </li>
-                        <li>
-                            <span className={styles.span}>
-                                <FontAwesomeIcon icon={faGraduationCap} />
-                            </span>
-                            {doctor.education}
-                        </li>
-                        <li>
-                            <span className={styles.span}>
-                                <FontAwesomeIcon icon={faGlasses} />
-                            </span>
-                            {doctor.specialization}
-                        </li>
-                        <li>
-                            <span className={styles.span}>
-                                <FontAwesomeIcon icon={faEnvelope} />
-                            </span>
-                            {doctor.email}
-                        </li>
-                    </ul>
-                </div>
-                <div className={styles.about}>
-                    <div>{doctor.about}</div>
-                    <button type="button" className={styles.btn}>
-                        <Link to={`/${doctor.id}/appointments`}>
-                            Book an appointment
-                        </Link>
-                    </button>
-                </div>
-            </div>
-
+            {loading ? (
+                <Loader />
+            ) : (
+                <>
+                    <div className={styles.mainContainer}>
+                        <div>
+                            <img
+                                className={styles.img}
+                                src={doctor.img}
+                                alt={doctor.name}
+                            />
+                        </div>
+                        <div className={styles.doctorsInfo}>
+                            <ul className={styles.generalInfo}>
+                                <li
+                                    style={{
+                                        fontWeight: 700,
+                                        fontSize: '5rem',
+                                    }}
+                                >
+                                    {doctor.name}
+                                </li>
+                                <li>
+                                    <span className={styles.span}>
+                                        <FontAwesomeIcon
+                                            icon={faGraduationCap}
+                                        />
+                                    </span>
+                                    {doctor.education}
+                                </li>
+                                <li>
+                                    <span className={styles.span}>
+                                        <FontAwesomeIcon icon={faGlasses} />
+                                    </span>
+                                    {doctor.specialization}
+                                </li>
+                                <li>
+                                    <span className={styles.span}>
+                                        <FontAwesomeIcon icon={faEnvelope} />
+                                    </span>
+                                    {doctor.email}
+                                </li>
+                            </ul>
+                        </div>
+                        <div className={styles.about}>
+                            <div>{doctor.about}</div>
+                            <button type="button" className={styles.btn}>
+                                <Link to={`/${doctor.id}/appointments`}>
+                                    Book an appointment
+                                </Link>
+                            </button>
+                        </div>
+                    </div>
+                </>
+            )}
             <div>
                 <CommentForm />
                 {comments !== undefined &&

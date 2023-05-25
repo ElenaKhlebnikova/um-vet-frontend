@@ -13,6 +13,7 @@ import Blog from './layouts/pages/blog/blog';
 import Post from './layouts/pages/blog/post';
 import Header from './layouts/header/header';
 import Footer from './layouts/footer/footer';
+import Loader from './components/loader';
 
 const router = createBrowserRouter([
     {
@@ -106,6 +107,11 @@ const router = createBrowserRouter([
     {
         path: '/blog/:postId',
         element: <Post />,
+        errorElement: <ErrorPage />,
+    },
+    {
+        path: '/load',
+        element: <Loader />,
         errorElement: <ErrorPage />,
     },
 ]);

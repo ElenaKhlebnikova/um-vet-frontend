@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './hour.module.css';
 import PropTypes from 'prop-types';
-import useAppointments from '../../../../hooks/useAppointments';
+import useAppointments from '../../../../hooks/use-appointments';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import AppointmentForm from '../make-appointment-form/make-appointment-form';
@@ -10,6 +10,7 @@ function Hour({ h, day, doctor }) {
     const [date, setDate] = useState('');
     const [hour, setHour] = useState('');
     const [shown, setShown] = useState(false);
+    const { data } = useAppointments(doctor);
 
     const checkUnavailability = (day, h, firstWeek) => {
         if (firstWeek === true) {
@@ -27,47 +28,44 @@ function Hour({ h, day, doctor }) {
         }
     };
 
-    const { data } = useAppointments(doctor);
-
     return (
         <>
-            {shown && (
-                <>
-                    <button
-                        type="button"
-                        className={styles.close}
-                        onClick={() => setShown(false)}
-                    >
-                        <FontAwesomeIcon
-                            icon={faXmark}
-                            style={{
-                                color: '#01b2c1',
-                                height: '5rem',
-                                marginTop: '2rem',
-                            }}
+            <>
+                {shown && (
+                    <>
+                        <button
+                            type="button"
+                            className={styles.close}
+                            onClick={() => setShown(false)}
+                        >
+                            <FontAwesomeIcon icon={faXmark} />
+                        </button>
+                        <AppointmentForm
+                            doctor={doctor}
+                            hour={hour}
+                            date={date}
                         />
-                    </button>
-                    <AppointmentForm doctor={doctor} hour={hour} date={date} />
-                </>
-            )}
+                    </>
+                )}
 
-            <button
-                key={h + day}
-                disabled={checkUnavailability(day, h, false) && true}
-                type="button"
-                className={
-                    !checkUnavailability(day, h, false)
-                        ? styles.available
-                        : styles.notAvailable
-                }
-                onClick={() => {
-                    setShown(true);
-                    setDate(day.toDateString());
-                    setHour(h);
-                }}
-            >
-                {h}
-            </button>
+                <button
+                    key={h + day}
+                    disabled={checkUnavailability(day, h, false) && true}
+                    type="button"
+                    className={
+                        !checkUnavailability(day, h, false)
+                            ? styles.available
+                            : styles.notAvailable
+                    }
+                    onClick={() => {
+                        setShown(true);
+                        setDate(day.toDateString());
+                        setHour(h);
+                    }}
+                >
+                    {h}
+                </button>
+            </>
         </>
     );
 }

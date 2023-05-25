@@ -98,3 +98,73 @@ input {
 input:focus {
     border: #36454f;
 }
+
+.errorMessage {
+    color: #f57f95;
+    font-size: 1.5rem;
+}
+
+.formItem {
+    margin-top: 2rem;
+}
+
+.formItem input {
+    border: 2px solid #67d1da;
+    width: 95%;
+}
+@media screen and (max-width: 600px) {
+    .form {
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        height: 100vh;
+        width: 100vw;
+        padding: 10rem 1rem;
+        margin-right: 2rem;
+        font-size: 1.5rem;
+    }
+    .formContainer {
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        height: 100vh;
+        width: 100vw;
+        padding: 0;
+    }
+    .form h3 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .form span {
+        font-size: 1rem;
+    }
+    .errorMessage {
+        font-size: 1rem;
+    }
+    .formItem label {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .form {
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        height: 70vh;
+        width: 80vw;
+        padding: 10rem 1rem;
+        margin-right: 2rem;
+        font-size: 1.5rem;
+    }
+    .formContainer {
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        height: 100vh;
+        width: 100vw;
+        padding: 0;
+    }
+}

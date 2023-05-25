@@ -4,6 +4,7 @@ import styles from './header.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../assets/logo.png';
+
 function Header() {
     const [menuSmallHidden, setMenuSmallHidden] = useState(true);
     const screenWidth = window.screen.width;
@@ -14,7 +15,7 @@ function Header() {
         } else return;
     };
     return (
-        <>
+        <div>
             {(screenWidth <= 700) & menuSmallHidden && (
                 <div className={styles.headerSmall}>
                     <button
@@ -69,7 +70,7 @@ function Header() {
                     <div className={styles.menu_item_container}>Contacts</div>
                 </Link>
             </div>
-        </>
+        </div>
     );
 }
 
