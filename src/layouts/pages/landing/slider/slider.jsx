@@ -11,41 +11,43 @@ import SecondSlide from './slides/second_slide';
 import ThirdSlide from './slides/third_slide';
 
 function Slider() {
-    const [touchStart, setTouchStart] = useState(null);
-    const [touchEnd, setTouchEnd] = useState(null);
+    const [touchPosition, setTouchPosition] = useState(null);
     const [slide, setSlide] = useState(1);
-    const minSwipeDistance = 50;
 
     const DIRECTIONS = {
         INC: 1,
         DEC: -1,
     };
 
-    const onTouchStart = (e) => {
-        setTouchEnd(null);
-        setTouchStart(e.targetTouches[0].clientX);
+    const handleTouchStart = (e) => {
+        const touchDown = e.touches[0].clientX;
+        setTouchPosition(touchDown);
+    };
+    const handleTouchMove = (e) => {
+        const touchDown = touchPosition;
+
+        if (touchDown === null) {
+            return;
+        }
+
+        const currentTouch = e.touches[0].clientX;
+        const diff = touchDown - currentTouch;
+
+        if (diff > 5) {
+            if (slide === 3) {
+                setSlide(1);
+            } else setSlide(slide + 1);
+        }
+
+        if (diff < -5) {
+            if (slide === 1) {
+                setSlide(3);
+            } else setSlide(slide - 1);
+        }
+
+        setTouchPosition(null);
     };
 
-    const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
-
-    const onTouchEnd = () => {
-        if (!touchStart || !touchEnd) return;
-        const distance = touchStart - touchEnd;
-        const isLeftSwipe = distance > minSwipeDistance;
-        const isRightSwipe = distance < -minSwipeDistance;
-        if (isLeftSwipe) {
-            setSlide(slide + 1);
-        }
-        if (isLeftSwipe && slide === 3) {
-            setSlide(1);
-        }
-        if (isRightSwipe) {
-            setSlide(slide - 1);
-        }
-        if (isRightSwipe && slide === 1) {
-            setSlide(3);
-        }
-    };
     const handleSlides = (direction) => {
         if (slide === 3 && direction === DIRECTIONS.INC) {
             setSlide(1);
@@ -78,23 +80,20 @@ function Slider() {
             <div>
                 {slide === 1 && (
                     <FirstSlide
-                        onTouchStart={onTouchStart}
-                        onTouchMove={onTouchMove}
-                        onTouchEnd={onTouchEnd}
+                        onTouchStart={handleTouchStart}
+                        onTouchMove={handleTouchMove}
                     />
                 )}
                 {slide === 2 && (
                     <SecondSlide
-                        onTouchStart={onTouchStart}
-                        onTouchMove={onTouchMove}
-                        onTouchEnd={onTouchEnd}
+                        onTouchStart={handleTouchStart}
+                        onTouchMove={handleTouchMove}
                     />
                 )}
                 {slide === 3 && (
                     <ThirdSlide
-                        onTouchStart={onTouchStart}
-                        onTouchMove={onTouchMove}
-                        onTouchEnd={onTouchEnd}
+                        onTouchStart={handleTouchStart}
+                        onTouchMove={handleTouchMove}
                     />
                 )}
             </div>
