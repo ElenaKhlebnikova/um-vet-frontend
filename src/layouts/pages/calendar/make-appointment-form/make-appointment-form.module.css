@@ -10,17 +10,21 @@
 .form {
     position: fixed;
     top: 2%;
-    left: 7%;
+    left: 20%;
     z-index: 1;
     display: flex;
     flex-direction: column;
     background-color: #fff;
-    padding: 10rem 30rem;
+    padding: 5rem;
     overflow: none;
     font-size: 2.5rem;
     color: #36454f;
-    width: 50%;
+    width: 50vw;
     text-align: start;
+}
+
+.msg {
+    margin: 10rem;
 }
 
 .formItem {
@@ -146,6 +150,10 @@ input:focus {
         display: flex;
         flex-direction: column;
     }
+}
+
+.msg {
+    font-size: 2rem;
 }
 
 @media screen and (max-width: 1000px) {

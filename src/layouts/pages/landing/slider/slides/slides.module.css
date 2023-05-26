@@ -127,6 +127,8 @@ li {
 
 @media screen and (max-width: 600px) {
     .container_slide_first {
+        width: 100vw;
+        margin-right: 0;
         background-image: linear-gradient(
                 to bottom,
                 rgba(183, 199, 204, 0.52),

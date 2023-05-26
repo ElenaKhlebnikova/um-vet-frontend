@@ -26,11 +26,11 @@
 
 .close {
     position: fixed;
-    top: 20%;
-    left: 80%;
+    top: 5%;
+    left: 90%;
     z-index: 3;
     transition: all 0.2s;
-    color: #01b2c1;
+    color: #c0dfe1;
     margin-top: 2rem;
     font-size: 3rem;
 }
