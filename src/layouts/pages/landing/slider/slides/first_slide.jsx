@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faStethoscope,
@@ -26,42 +27,67 @@ function FirstSlide() {
                 />
             </div>
             <div className={styles.info_container}>
-                <p className={styles.heading}>About us</p>
-                <p className={styles.text}>
-                    Welcome to UmVet! We&apos;ve been providing our clients with
-                    the best vet service since 2010!
+                <p className={styles.heading}>
+                    <FormattedMessage
+                        id="firstSliderHeading"
+                        defaultMessage="About us"
+                    />
+                </p>
+                <div className={styles.text}>
+                    <FormattedMessage
+                        id="firstSliderInfo"
+                        defaultMessage="Welcome to UmVet! We've been providing our clients with
+                    the best vet service since 2010!"
+                    />
+
                     <ul>
-                        In our clinic we provide you with:
+                        <FormattedMessage
+                            id="firstSliderUl"
+                            defaultMessage="In our clinic we provide you with:"
+                        />
+
                         <li>
                             <FontAwesomeIcon
                                 className={styles.icon}
                                 icon={faStethoscope}
                             />
-                            Best veterinary care
+                            <FormattedMessage
+                                id="firstSliderLi1"
+                                defaultMessage="Best veterinary care"
+                            />
                         </li>
                         <li>
                             <FontAwesomeIcon
                                 className={styles.icon}
                                 icon={faCookieBite}
                             />
-                            Treat jar
+                            <FormattedMessage
+                                id="firstSliderLi2"
+                                defaultMessage=" Treat jar"
+                            />
                         </li>
                         <li>
                             <FontAwesomeIcon
                                 className={styles.icon}
                                 icon={faHeart}
                             />
-                            Friendly staff
+                            <FormattedMessage
+                                id="firstSliderLi3"
+                                defaultMessage="Friendly staff"
+                            />
                         </li>
                         <li>
                             <FontAwesomeIcon
                                 className={styles.icon}
                                 icon={faShieldCat}
                             />
-                            Seperate waiting rooms for cats and dogs
+                            <FormattedMessage
+                                id="firstSliderLi4"
+                                defaultMessage="Seperate waiting rooms for cats and dogs"
+                            />
                         </li>
                     </ul>
-                </p>
+                </div>
             </div>
         </div>
     );

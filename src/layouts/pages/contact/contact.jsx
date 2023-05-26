@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './contact.module.css';
 import mapPin from '../../../assets/map-pin-soild.png';
+import { FormattedMessage } from 'react-intl';
 
 function Contact() {
     const getIcon = () => {
@@ -44,7 +45,10 @@ function Contact() {
                                         fontWeight: 200,
                                     }}
                                 >
-                                    We are here 👋
+                                    <FormattedMessage
+                                        id="popupMsg"
+                                        defaultMessage="We are here! 👋"
+                                    />
                                 </span>
                             </Popup>
                         </Marker>
@@ -52,7 +56,10 @@ function Contact() {
                 </div>
                 <div className={styles.contactInformation}>
                     <h3 style={{ marginLeft: '4rem' }}>
-                        You can contact us here:
+                        <FormattedMessage
+                            id="contactPage"
+                            defaultMessage="You can contact us here:"
+                        />
                     </h3>
                     <ul>
                         <li className={styles.listItem}>

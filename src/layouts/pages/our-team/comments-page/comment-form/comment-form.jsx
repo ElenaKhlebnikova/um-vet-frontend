@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router';
 import styles from './comment-form.module.css';
-
+import { FormattedMessage, useIntl } from 'react-intl';
 import useComments from '../../../../../hooks/use-comments';
 import useValidateComment from '../../../../../hooks/use-validate-comment';
 
@@ -13,7 +13,7 @@ function CommentForm() {
     const [rating, setRating] = useState(0);
     const doctorId = useParams();
     const date = new Date(Date.now()).toDateString();
-
+    const intl = useIntl();
     const { errorName, errorComment, errorRating, invalid } =
         useValidateComment(name, comment, 0, rating);
 
@@ -34,14 +34,19 @@ function CommentForm() {
     return (
         <div className={styles.commentContainer}>
             <form className={styles.form}>
-                <h3 style={{ marginBottom: '0rem' }}>Comments</h3>
+                <h3 style={{ marginBottom: '0rem' }}>
+                    <FormattedMessage id="comments" defaultMessage="Comments" />
+                </h3>
                 <div className={styles.formItem}>
                     <label>
-                        Name:
+                        <FormattedMessage id="name" defaultMessage="Name" />
                         <input
                             type="text"
                             onChange={(e) => setName(e.target.value)}
-                            placeholder="Please enter your name"
+                            placeholder={intl.formatMessage({
+                                defaultMessage: 'Please enter your name',
+                                id: 'namePlaceholder',
+                            })}
                         />
                     </label>
                     <span style={{ color: '#f57f95', fontSize: '1.5rem' }}>
@@ -50,10 +55,16 @@ function CommentForm() {
                 </div>
                 <div className={styles.formItem}>
                     <label>
-                        Your comment:
+                        <FormattedMessage
+                            id="comment"
+                            defaultMessage="Your comment"
+                        />
                         <textarea
                             type="text"
-                            placeholder="Please enter your comment"
+                            placeholder={intl.formatMessage({
+                                defaultMessage: 'Please enter your comment',
+                                id: 'commentPlaceholder',
+                            })}
                             onChange={(e) => {
                                 setComment(e.target.value);
                             }}
@@ -130,7 +141,10 @@ function CommentForm() {
                     value="submit"
                     onClick={(e) => submitAComment(e)}
                 >
-                    Confirm
+                    <FormattedMessage
+                        id="confirmBtn"
+                        defaultMessage="Confirm"
+                    />
                 </button>
             </form>
         </div>

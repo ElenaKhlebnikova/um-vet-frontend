@@ -13,6 +13,7 @@ import CommentForm from './comment-form/comment-form';
 import useDoctors from '../../../../hooks/use-doctors';
 import useComments from '../../../../hooks/use-comments';
 import Loader from '../../../../components/loader';
+import { FormattedMessage } from 'react-intl';
 
 function CommentsPage() {
     const { doctorId } = useParams();
@@ -24,7 +25,10 @@ function CommentsPage() {
         <>
             <Link to="/our-team">
                 <button className={styles.backBtn} type="button">
-                    &larr; Go back{' '}
+                    <FormattedMessage
+                        id="backBtn"
+                        defaultMessage="&larr; Go back"
+                    />
                 </button>
             </Link>
             {loading ? (
@@ -75,7 +79,10 @@ function CommentsPage() {
                             <div>{doctor.about}</div>
                             <button type="button" className={styles.btn}>
                                 <Link to={`/${doctor.id}/appointments`}>
-                                    Book an appointment
+                                    <FormattedMessage
+                                        id="appointmentBtn"
+                                        defaultMessage="Book an appointment"
+                                    />
                                 </Link>
                             </button>
                         </div>
@@ -135,8 +142,17 @@ function CommentsPage() {
                                         icon={faStar}
                                     />
                                 </div>
-                                <p style={{ fontSize: '1.5rem' }}>
-                                    Published on: {com.date}
+                                <p
+                                    style={{
+                                        fontSize: '1.5rem',
+                                        marginTop: '2rem',
+                                    }}
+                                >
+                                    <FormattedMessage
+                                        id="published"
+                                        defaultMessage="Published on"
+                                    />
+                                    {com.date}
                                 </p>
                             </div>
                         </div>

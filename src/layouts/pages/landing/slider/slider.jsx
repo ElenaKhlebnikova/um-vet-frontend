@@ -11,41 +11,11 @@ import SecondSlide from './slides/second_slide';
 import ThirdSlide from './slides/third_slide';
 
 function Slider() {
-    const [touchPosition, setTouchPosition] = useState(null);
     const [slide, setSlide] = useState(1);
 
     const DIRECTIONS = {
         INC: 1,
         DEC: -1,
-    };
-
-    const handleTouchStart = (e) => {
-        const touchDown = e.touches[0].clientX;
-        setTouchPosition(touchDown);
-    };
-    const handleTouchMove = (e) => {
-        const touchDown = touchPosition;
-
-        if (touchDown === null) {
-            return;
-        }
-
-        const currentTouch = e.touches[0].clientX;
-        const diff = touchDown - currentTouch;
-
-        if (diff > 5) {
-            if (slide === 3) {
-                setSlide(1);
-            } else setSlide(slide + 1);
-        }
-
-        if (diff < -5) {
-            if (slide === 1) {
-                setSlide(3);
-            } else setSlide(slide - 1);
-        }
-
-        setTouchPosition(null);
     };
 
     const handleSlides = (direction) => {
@@ -78,24 +48,9 @@ function Slider() {
                 </button>
             </div>
             <div>
-                {slide === 1 && (
-                    <FirstSlide
-                        onTouchStart={handleTouchStart}
-                        onTouchMove={handleTouchMove}
-                    />
-                )}
-                {slide === 2 && (
-                    <SecondSlide
-                        onTouchStart={handleTouchStart}
-                        onTouchMove={handleTouchMove}
-                    />
-                )}
-                {slide === 3 && (
-                    <ThirdSlide
-                        onTouchStart={handleTouchStart}
-                        onTouchMove={handleTouchMove}
-                    />
-                )}
+                {slide === 1 && <FirstSlide />}
+                {slide === 2 && <SecondSlide />}
+                {slide === 3 && <ThirdSlide />}
             </div>
             <button type="button" onClick={() => handleSlides(DIRECTIONS.INC)}>
                 <div className={styles.btn}>

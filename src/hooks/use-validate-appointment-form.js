@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 const useValidate = (name, phone, rating) => {
     const [errorName, setErrorName] = useState('');
     const [errorPhone, setErrorPhone] = useState(
-        'Phone number should be 11 characters long and contain only numbers'
+        <FormattedMessage
+            id="errPhone"
+            defaultMessage="Phone number should be 11 characters long and contain only numbers"
+        />
     );
     const [invalid, setInvalid] = useState(true);
 
@@ -13,19 +17,31 @@ const useValidate = (name, phone, rating) => {
         const validPhone = phoneValue.match(numericReg);
         // validating fields
 
-        // these should be renamed as errors, nameError, commentError
         nameValue.length < 3 &&
-            setErrorName('Name should be at least 3 characters long');
+            setErrorName(
+                <FormattedMessage
+                    id="errName"
+                    defaultMessage="Name should be at least 3 characters long"
+                />
+            );
 
         nameValue.length < 100 && nameValue.length >= 3 && setErrorName('');
 
         nameValue.length > 100 &&
-            setErrorName('Name should be less than 100 characters long');
+            setErrorName(
+                <FormattedMessage
+                    id="errNameBig"
+                    defaultMessage="Name should be less than 100 characters long"
+                />
+            );
 
         if (validPhone !== null) {
             validPhone[0].length !== 11
                 ? setErrorPhone(
-                      'Phone number should be 11 characters long and contain only numbers'
+                      <FormattedMessage
+                          id="errPhone"
+                          defaultMessage="Phone number should be 11 characters long and contain only numbers"
+                      />
                   )
                 : setErrorPhone('');
 

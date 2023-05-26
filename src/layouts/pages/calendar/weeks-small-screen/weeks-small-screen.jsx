@@ -3,13 +3,16 @@ import styles from './weeks-small-screen.module.css';
 import React, { useState } from 'react';
 import Day from './../day/day';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 function WeeksSmallScreen({ doctor }) {
     const [day, setDay] = useState('');
 
     return (
         <div className={styles.mainContainer}>
             <div className={styles.selectContainer}>
-                <span className={styles.spanDate}>Date: </span>
+                <span className={styles.spanDate}>
+                    <FormattedMessage id="date" defaultMessage="Date" />
+                </span>
                 <select
                     className={styles.select}
                     onChange={(e) => {
@@ -17,7 +20,10 @@ function WeeksSmallScreen({ doctor }) {
                     }}
                 >
                     <option className={styles.options} value="">
-                        Select a date
+                        <FormattedMessage
+                            id="dateSelect"
+                            defaultMessage="Select a date"
+                        />
                     </option>
                     {days !== undefined &&
                         days.map((day) => (

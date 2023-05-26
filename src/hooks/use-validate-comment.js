@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 const useValidateComment = (name, comment, rating) => {
     const [errorName, setErrorName] = useState('');
@@ -10,17 +11,32 @@ const useValidateComment = (name, comment, rating) => {
         // validating fields
         //checking name
         nameValue.length < 3 &&
-            setErrorName('Name should be at least 3 characters long');
+            setErrorName(
+                <FormattedMessage
+                    id="errName"
+                    defaultMessage="Name should be at least 3 characters long"
+                />
+            );
 
         nameValue.length < 100 && nameValue.length >= 3 && setErrorName('');
 
         nameValue.length > 100 &&
-            setErrorName('Name should be less than 100 characters long');
+            setErrorName(
+                <FormattedMessage
+                    id="errNameBig"
+                    defaultMessage="Name should be less than 100 characters long"
+                />
+            );
 
         //checking comment
         commentValue !== undefined &&
             commentValue.length < 10 &&
-            setErrorComment('Comment should be at least 10 characters long');
+            setErrorComment(
+                <FormattedMessage
+                    id="errComment"
+                    defaultMessage="Comment should be at least 10 characters long"
+                />
+            );
 
         commentValue !== undefined &&
             commentValue.length >= 10 &&
@@ -29,11 +45,21 @@ const useValidateComment = (name, comment, rating) => {
 
         commentValue !== undefined &&
             commentValue.length > 1000 &&
-            setErrorComment('Comment should be less than 1000 characters');
+            setErrorComment(
+                <FormattedMessage
+                    id="errCommentBig"
+                    defaultMessage="Comment should be less than 1000 characters"
+                />
+            );
 
         //checking rating
         ratingValue === 0
-            ? setErrorRating('Please rate the doctor from 1 to 5')
+            ? setErrorRating(
+                  <FormattedMessage
+                      id="errRating"
+                      defaultMessage="Please rate the doctor from 1 to 5"
+                  />
+              )
             : setErrorRating('');
 
         // validating the comment form
