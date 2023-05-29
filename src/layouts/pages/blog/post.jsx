@@ -2,20 +2,17 @@ import React from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import useBlog from '../../../hooks/use-blog';
-import Header from '../../header/header';
-import Footer from '../../footer/footer';
 import Loader from '../../../components/loader';
 import styles from './post.module.css';
 
-function Post() {
+// eslint-disable-next-line react/prop-types
+function Post({ locale }) {
     const { postId } = useParams();
-    const post = useBlog(postId).data;
-    const { loading } = useBlog(postId);
+    const post = useBlog(locale, postId).data;
+    const { loading } = useBlog(locale, postId);
 
     return (
         <>
-            <Header />
-
             {loading ? (
                 <Loader />
             ) : (
@@ -55,7 +52,6 @@ function Post() {
                     )}
                 </>
             )}
-            <Footer />
         </>
     );
 }

@@ -70,11 +70,10 @@ const useValidateComment = (name, comment, rating) => {
         commentValue !== undefined &&
         commentValue.length >= 10 &&
         commentValue.length < 1000 &&
-        ratingValue > 0
+        ratingValue !== 0
             ? setInvalid(false)
             : setInvalid(true);
 
-        console.log(nameValue, commentValue, ratingValue, invalid);
         return [errorName, errorComment, errorRating, invalid];
     };
 

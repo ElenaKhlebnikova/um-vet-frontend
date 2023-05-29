@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import { IntlProvider } from 'react-intl';
@@ -6,8 +6,7 @@ import de from './../../translations/de';
 import en from './../../translations/en';
 
 // eslint-disable-next-line react/prop-types
-function Layout({ props }) {
-    const [locale, setLocale] = useState('en');
+function Layout({ props, locale, setLocale }) {
     return (
         <IntlProvider
             messages={locale === 'en' ? en : de}

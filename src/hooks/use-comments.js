@@ -14,7 +14,7 @@ const useComments = (id) => {
         getComments(doctorId)
             .then((res) => res.json())
             .then((resp) => {
-                setData(resp.data.comments);
+                setData(resp.data.data);
                 setLoading(false);
             });
     };

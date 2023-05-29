@@ -7,10 +7,10 @@ import NextWeeks from './next-weeks/next-weeks';
 import WeeksSmallScreen from './weeks-small-screen/weeks-small-screen';
 import Loader from '../../../components/loader';
 import { FormattedMessage } from 'react-intl';
-function App() {
+function Calendar() {
     const [doctor, setDoctor] = useState('');
     const { doctorId } = useParams();
-    const doctors = useDoctors().data;
+    const doctors = useDoctors('en').data;
     const { loading } = useDoctors();
     const screenWidth = window.screen.width;
 
@@ -105,4 +105,4 @@ function App() {
         </>
     );
 }
-export default App;
+export default Calendar;

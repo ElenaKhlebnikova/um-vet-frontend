@@ -15,7 +15,7 @@ function CommentForm() {
     const date = new Date(Date.now()).toDateString();
     const intl = useIntl();
     const { errorName, errorComment, errorRating, invalid } =
-        useValidateComment(name, comment, 0, rating);
+        useValidateComment(name, comment, rating);
 
     const { createComment } = useComments();
 

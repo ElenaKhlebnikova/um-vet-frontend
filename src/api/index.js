@@ -1,21 +1,21 @@
-const URL = 'https://umvetapi.onrender.com';
+const URL = 'http://localhost:5000';
 
 const headers = {
     'Content-Type': 'application/json',
 };
 
 // All GET REQUESTS
-const getServiceAndPrice = () =>
-    fetch(`${URL}/service-and-prices`, { method: 'GET', headers });
+const getServiceAndPrice = (lang) =>
+    fetch(`${URL}/service-and-prices?lang=${lang}`, { method: 'GET', headers });
 
 const getComments = (id) =>
     fetch(`${URL}/comments/${id}`, { method: 'GET', headers });
 
-const getDoctors = (id) => {
+const getDoctors = (lang, id) => {
     if (!id) {
-        return fetch(`${URL}/doctors`, { method: 'GET', headers });
+        return fetch(`${URL}/doctors?lang=${lang}`, { method: 'GET', headers });
     } else {
-        return fetch(`${URL}/doctors/${id}`, {
+        return fetch(`${URL}/doctors/${id}?lang=${lang}`, {
             method: 'GET',
             headers,
         });
@@ -33,11 +33,15 @@ const getAppointments = (id) => {
     }
 };
 
-const getBlog = (id) => {
+const getBlog = (lang, id) => {
     if (!id) {
-        return fetch(`${URL}/blog`, { method: 'GET', headers });
+        console.log(lang);
+        return fetch(`${URL}/blog?lang=${lang}`, { method: 'GET', headers });
     } else {
-        return fetch(`${URL}/blog/${id}`, { method: 'GET', headers });
+        return fetch(`${URL}/blog/${id}?lang=${lang}`, {
+            method: 'GET',
+            headers,
+        });
     }
 };
 

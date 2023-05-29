@@ -3,8 +3,9 @@ import styles from './service-and-price.module.css';
 import useServiceAndPrice from '../../../hooks/use-service-and-price';
 import Loader from '../../../components/loader';
 
-function ServiceAndPrice() {
-    const serviceAndPrice = useServiceAndPrice().data;
+// eslint-disable-next-line react/prop-types
+function ServiceAndPrice({ locale }) {
+    const serviceAndPrice = useServiceAndPrice(locale).data;
     const { loading } = useServiceAndPrice();
     return (
         <>

@@ -15,11 +15,13 @@ import useComments from '../../../../hooks/use-comments';
 import Loader from '../../../../components/loader';
 import { FormattedMessage } from 'react-intl';
 
-function CommentsPage() {
+// eslint-disable-next-line react/prop-types
+function CommentsPage({ locale }) {
     const { doctorId } = useParams();
-    const doctor = useDoctors(doctorId).data;
-    const loading = useDoctors(doctorId).loading;
-    const { comments } = useComments(doctorId);
+    const doctor = useDoctors(locale, doctorId).data;
+    const loading = useDoctors(locale, doctorId).loading;
+    const comments = useComments(doctorId).comments;
+    console.log(comments);
 
     return (
         <>
@@ -92,6 +94,7 @@ function CommentsPage() {
             <div>
                 <CommentForm />
                 {comments !== undefined &&
+                    comments !== {} &&
                     comments !== [] &&
                     comments.map((com) => (
                         <div key={com._id} className={styles.commentContainer}>

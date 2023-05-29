@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Landing from './layouts/pages/landing/landing';
 import Calendar from './layouts/pages/calendar/calendar';
@@ -12,50 +12,106 @@ import Post from './layouts/pages/blog/post';
 import Layout from './layouts/layout/layout';
 
 function App() {
+    const [locale, setLocale] = useState('en');
+
     const router = createBrowserRouter([
         {
             path: '/',
-            element: <Layout props={<Landing />} />,
+            element: (
+                <Layout
+                    setLocale={setLocale}
+                    locale={locale}
+                    props={<Landing locale={locale} />}
+                />
+            ),
             errorElement: <ErrorPage />,
         },
         {
             path: '/our-team',
-            element: <Layout props={<OurTeam />} />,
+            element: (
+                <Layout
+                    setLocale={setLocale}
+                    locale={locale}
+                    props={<OurTeam locale={locale} />}
+                />
+            ),
             errorElement: <ErrorPage />,
         },
         {
             path: '/:doctorId/appointments',
-            element: <Layout props={<Calendar />} />,
+            element: (
+                <Layout
+                    setLocale={setLocale}
+                    locale={locale}
+                    props={<Calendar locale={locale} />}
+                />
+            ),
             errorElement: <ErrorPage />,
         },
         {
             path: '/:doctorId/comments',
-            element: <Layout props={<CommentsPage />} />,
+            element: (
+                <Layout
+                    setLocale={setLocale}
+                    locale={locale}
+                    props={<CommentsPage locale={locale} />}
+                />
+            ),
             errorElement: <ErrorPage />,
         },
         {
             path: '/appointments',
-            element: <Layout props={<Calendar />} />,
+            element: (
+                <Layout
+                    setLocale={setLocale}
+                    locale={locale}
+                    props={<Calendar locale={locale} />}
+                />
+            ),
             errorElement: <ErrorPage />,
         },
         {
             path: '/service-and-price',
-            element: <Layout props={<ServiceAndPrice />} />,
+            element: (
+                <Layout
+                    setLocale={setLocale}
+                    locale={locale}
+                    props={<ServiceAndPrice locale={locale} />}
+                />
+            ),
             errorElement: <ErrorPage />,
         },
         {
             path: '/contacts',
-            element: <Layout props={<Contact />} />,
+            element: (
+                <Layout
+                    setLocale={setLocale}
+                    locale={locale}
+                    props={<Contact locale={locale} />}
+                />
+            ),
             errorElement: <ErrorPage />,
         },
         {
             path: '/blog',
-            element: <Layout props={<Blog />} />,
+            element: (
+                <Layout
+                    setLocale={setLocale}
+                    locale={locale}
+                    props={<Blog locale={locale} />}
+                />
+            ),
             errorElement: <ErrorPage />,
         },
         {
             path: '/blog/:postId',
-            element: <Post />,
+            element: (
+                <Layout
+                    setLocale={setLocale}
+                    locale={locale}
+                    props={<Post locale={locale} />}
+                />
+            ),
             errorElement: <ErrorPage />,
         },
     ]);
