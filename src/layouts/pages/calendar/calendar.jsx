@@ -6,10 +6,11 @@ import FirstWeek from './first-week/first-week';
 import NextWeeks from './next-weeks/next-weeks';
 import WeeksSmallScreen from './weeks-small-screen/weeks-small-screen';
 import Loader from '../../../components/loader';
-function App() {
+import { FormattedMessage } from 'react-intl';
+function Calendar() {
     const [doctor, setDoctor] = useState('');
     const { doctorId } = useParams();
-    const doctors = useDoctors().data;
+    const doctors = useDoctors('en').data;
     const { loading } = useDoctors();
     const screenWidth = window.screen.width;
 
@@ -21,7 +22,12 @@ function App() {
                 <>
                     <div className={styles.calendarMainContainer}>
                         <div className={styles.selectContainer}>
-                            <span className={styles.spanDoctor}>Doctor: </span>
+                            <span className={styles.spanDoctor}>
+                                <FormattedMessage
+                                    id="doctor"
+                                    defaultMessage="Doctor"
+                                />
+                            </span>
                             <select
                                 className={styles.select}
                                 onChange={(e) => {
@@ -29,7 +35,10 @@ function App() {
                                 }}
                             >
                                 <option className={styles.options} value="">
-                                    Chose a doctor
+                                    <FormattedMessage
+                                        id="doctorChoose"
+                                        defaultMessage="Choose a doctor"
+                                    />
                                 </option>
                                 {doctors !== undefined &&
                                     doctors.map((doctor) => (
@@ -50,11 +59,36 @@ function App() {
                                 {screenWidth > 900 ? (
                                     <>
                                         <div className={styles.headOfTheTable}>
-                                            <div>Mon</div>
-                                            <div>Tue</div>
-                                            <div>Wed</div>
-                                            <div>Thu</div>
-                                            <div>Fri</div>
+                                            <div>
+                                                <FormattedMessage
+                                                    id="mon"
+                                                    defaultMessage="Mon"
+                                                />
+                                            </div>
+                                            <div>
+                                                <FormattedMessage
+                                                    id="tue"
+                                                    defaultMessage="Tue"
+                                                />
+                                            </div>
+                                            <div>
+                                                <FormattedMessage
+                                                    id="wed"
+                                                    defaultMessage="Wed"
+                                                />
+                                            </div>
+                                            <div>
+                                                <FormattedMessage
+                                                    id="thu"
+                                                    defaultMessage="Thu"
+                                                />
+                                            </div>
+                                            <div>
+                                                <FormattedMessage
+                                                    id="fri"
+                                                    defaultMessage="Fri"
+                                                />
+                                            </div>
                                         </div>
 
                                         <FirstWeek doctor={doctor} />
@@ -71,4 +105,4 @@ function App() {
         </>
     );
 }
-export default App;
+export default Calendar;

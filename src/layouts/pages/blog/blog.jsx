@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import styles from './blog.module.css';
 import useBlog from '../../../hooks/use-blog';
 import Loader from './../../../components/loader';
-function Blog() {
-    const posts = useBlog().data;
-    const { loading } = useBlog();
+// eslint-disable-next-line react/prop-types
+function Blog({ locale }) {
+    const posts = useBlog(locale).data;
+    const { loading } = useBlog(locale);
 
     return (
         <>

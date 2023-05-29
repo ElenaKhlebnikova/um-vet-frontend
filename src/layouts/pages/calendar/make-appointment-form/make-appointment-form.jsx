@@ -5,6 +5,7 @@ import useValidateAppointmentForm from '../../../../hooks/use-validate-appointme
 import useServiceAndPrice from '../../../../hooks/use-service-and-price';
 import useAppointments from '../../../../hooks/use-appointments';
 import Loader from '../../../../components/loader';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 function AppointmentForm({ doctor, hour, date }) {
     const [name, setName] = useState('');
@@ -12,6 +13,8 @@ function AppointmentForm({ doctor, hour, date }) {
     const [phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
     const [shown, setShown] = useState(true);
+
+    const intl = useIntl();
     const { errorName, errorPhone, invalid } = useValidateAppointmentForm(
         name,
         phone
@@ -52,16 +55,28 @@ function AppointmentForm({ doctor, hour, date }) {
                             <div className={styles.msg}>{message}</div>
                         ) : (
                             <form>
-                                <h3>Book an appointment</h3>
+                                <h3>
+                                    <FormattedMessage
+                                        id="book"
+                                        defaultMessage="Book an appointment"
+                                    />
+                                </h3>
                                 <div className={styles.formItem}>
                                     <label>
-                                        Name:
+                                        <FormattedMessage
+                                            id="name"
+                                            defaultMessage="Name"
+                                        />
                                         <input
                                             type="text"
                                             onChange={(e) =>
                                                 setName(e.target.value)
                                             }
-                                            placeholder="Please enter your name"
+                                            placeholder={intl.formatMessage({
+                                                defaultMessage:
+                                                    'Please enter your name',
+                                                id: 'namePlaceholder',
+                                            })}
                                         />
                                     </label>
                                     <span className={styles.errorMessage}>
@@ -70,10 +85,17 @@ function AppointmentForm({ doctor, hour, date }) {
                                 </div>
                                 <div className={styles.formItem}>
                                     <label>
-                                        Phone:
+                                        <FormattedMessage
+                                            id="phone"
+                                            defaultMessage="Phone"
+                                        />
                                         <input
                                             type="text"
-                                            placeholder="Please enter your phone"
+                                            placeholder={intl.formatMessage({
+                                                defaultMessage:
+                                                    'Please enter your phone',
+                                                id: 'namePlaceholder',
+                                            })}
                                             onChange={(e) =>
                                                 setPhone(e.target.value)
                                             }
@@ -121,7 +143,10 @@ function AppointmentForm({ doctor, hour, date }) {
                                         submitFormAndMakeAnAppointment(e)
                                     }
                                 >
-                                    Confirm
+                                    <FormattedMessage
+                                        id="confirmBtn"
+                                        defaultMessage="confirm"
+                                    />
                                 </button>
                             </form>
                         )}

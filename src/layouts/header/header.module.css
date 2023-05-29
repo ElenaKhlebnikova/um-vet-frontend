@@ -1,14 +1,15 @@
 .header_container {
     width: 100%;
     height: fit-content;
-    padding: 1rem 0rem 1rem 0rem;
+    padding: 1rem 0rem;
     align-items: center;
     justify-items: center;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     font-weight: 700;
     font-size: 2rem;
     color: #8ccad0;
+    overflow-x: hidden;
 }
 
 .hidden {
@@ -44,7 +45,7 @@
     border-right: 0.2rem solid #fff;
 }
 .user {
-    padding: 0 2rem 0rem 2rem;
+    padding: 0rem 2rem 0rem 2rem;
 }
 .user:hover {
     cursor: pointer;

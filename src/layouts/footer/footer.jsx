@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -17,34 +18,65 @@ function Footer() {
                 />
                 <ul>
                     <Link to="/appointments">
-                        <li className={styles.li}>Make an appointment</li>
+                        <li className={styles.li}>
+                            <FormattedMessage
+                                id="book"
+                                defaultMessage="Make an appointment"
+                            />
+                        </li>
                     </Link>
                     <Link to="/service-and-price">
-                        <li className={styles.li}>Service and price</li>
+                        <li className={styles.li}>
+                            <FormattedMessage
+                                id="service"
+                                defaultMessage="Services and prices"
+                            />
+                        </li>
                     </Link>
 
                     <Link to="/blog">
-                        <li className={styles.li}>For patients</li>
+                        <li className={styles.li}>
+                            <FormattedMessage
+                                id="blog"
+                                defaultMessage="For patients"
+                            />
+                        </li>
                     </Link>
 
                     <Link to="/our-team">
-                        <li className={styles.li}>Our team</li>
+                        <li className={styles.li}>
+                            <FormattedMessage
+                                id="team"
+                                defaultMessage="Our team"
+                            />
+                        </li>
                     </Link>
 
                     <Link to="/contacts">
-                        <li className={styles.li}>Contacts</li>
+                        <li className={styles.li}>
+                            <FormattedMessage
+                                id="contact"
+                                defaultMessage="Contact us"
+                            />
+                        </li>
                     </Link>
                 </ul>
             </div>
             <div className={styles.externalLinksContainer}>
                 <div className={styles.nameContainer}>
                     <div>
-                        Made with &nbsp;
+                        <FormattedMessage
+                            id="footerMsg1"
+                            defaultMessage="Made with &nbsp;"
+                        />
                         <FontAwesomeIcon
                             icon={faHeart}
                             style={{ color: '#f5f5f5' }}
                         />
-                        &nbsp; by Elena Khlebnikova
+                        <FormattedMessage
+                            id="footerMsg2"
+                            defaultMessage=" &nbsp; by Elena Khlebnikova"
+                        />
                     </div>
                 </div>
                 <div className={styles.iconLinksContainer}>

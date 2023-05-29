@@ -4,9 +4,10 @@ import Doctor from './doctor/doctor';
 import useDoctors from './../../../hooks/use-doctors';
 import styles from './our-team.module.css';
 import Loader from '../../../components/loader';
-function OurTeam() {
-    const doctors = useDoctors().data;
-    const loading = useDoctors().loading;
+// eslint-disable-next-line react/prop-types
+function OurTeam({ locale }) {
+    const doctors = useDoctors(locale).data;
+    const loading = useDoctors(locale).loading;
     return (
         <>
             {loading ? (

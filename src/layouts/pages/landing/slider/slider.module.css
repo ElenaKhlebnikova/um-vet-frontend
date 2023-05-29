@@ -22,11 +22,12 @@
 }
 .container {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: 0.5fr 3fr 0.5fr;
     align-items: center;
     justify-items: center;
-    margin: 3rem 0 3rem 0;
-    width: 80%;
+    margin: 0;
+    width: 100vw;
+    overflow-x: hidden;
 }
 button {
     background: none;

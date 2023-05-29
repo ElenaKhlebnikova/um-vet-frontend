@@ -13,18 +13,24 @@ import CommentForm from './comment-form/comment-form';
 import useDoctors from '../../../../hooks/use-doctors';
 import useComments from '../../../../hooks/use-comments';
 import Loader from '../../../../components/loader';
+import { FormattedMessage } from 'react-intl';
 
-function CommentsPage() {
+// eslint-disable-next-line react/prop-types
+function CommentsPage({ locale }) {
     const { doctorId } = useParams();
-    const doctor = useDoctors(doctorId).data;
-    const loading = useDoctors(doctorId).loading;
-    const { comments } = useComments(doctorId);
+    const doctor = useDoctors(locale, doctorId).data;
+    const loading = useDoctors(locale, doctorId).loading;
+    const comments = useComments(doctorId).comments;
+    console.log(comments);
 
     return (
         <>
             <Link to="/our-team">
                 <button className={styles.backBtn} type="button">
-                    &larr; Go back{' '}
+                    <FormattedMessage
+                        id="backBtn"
+                        defaultMessage="&larr; Go back"
+                    />
                 </button>
             </Link>
             {loading ? (
@@ -75,7 +81,10 @@ function CommentsPage() {
                             <div>{doctor.about}</div>
                             <button type="button" className={styles.btn}>
                                 <Link to={`/${doctor.id}/appointments`}>
-                                    Book an appointment
+                                    <FormattedMessage
+                                        id="appointmentBtn"
+                                        defaultMessage="Book an appointment"
+                                    />
                                 </Link>
                             </button>
                         </div>
@@ -85,6 +94,7 @@ function CommentsPage() {
             <div>
                 <CommentForm />
                 {comments !== undefined &&
+                    comments !== {} &&
                     comments !== [] &&
                     comments.map((com) => (
                         <div key={com._id} className={styles.commentContainer}>
@@ -135,8 +145,17 @@ function CommentsPage() {
                                         icon={faStar}
                                     />
                                 </div>
-                                <p style={{ fontSize: '1.5rem' }}>
-                                    Published on: {com.date}
+                                <p
+                                    style={{
+                                        fontSize: '1.5rem',
+                                        marginTop: '2rem',
+                                    }}
+                                >
+                                    <FormattedMessage
+                                        id="published"
+                                        defaultMessage="Published on"
+                                    />
+                                    {com.date}
                                 </p>
                             </div>
                         </div>

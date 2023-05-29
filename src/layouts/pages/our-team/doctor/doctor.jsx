@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './doctor.module.css';
+import { FormattedMessage } from 'react-intl';
 function Doctor({ doctor }) {
     return (
         <div key={doctor._id} className={styles.doctorsContainer}>
@@ -12,14 +13,20 @@ function Doctor({ doctor }) {
                 <div>
                     <button type="button" className={styles.btn}>
                         <Link to={`/${doctor._id}/appointments`}>
-                            Book an appointment
+                            <FormattedMessage
+                                id="appointmentBtn"
+                                defaultMessage="Make an appointment"
+                            />
                         </Link>
                     </button>
                 </div>
                 <div className={styles.btnLearnMore}>
                     <button type="button">
                         <Link to={`/${doctor._id}/comments`}>
-                            Learn More &rarr;
+                            <FormattedMessage
+                                id="learnMoreBtn"
+                                defaultMessage="Learn More &rarr;"
+                            />
                         </Link>
                     </button>
                 </div>

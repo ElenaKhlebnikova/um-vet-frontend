@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './landing.module.css';
 import landingImg from '../../../assets/MainPicture.jpeg';
+import { FormattedMessage } from 'react-intl';
 import Slider from './slider/slider';
 
 function Landing() {
@@ -10,12 +11,18 @@ function Landing() {
             <div className={styles.main_container}>
                 <div className={styles.info_and_btn_container}>
                     <div className={styles.info_container}>
-                        Welcome to UmVet where pets meet compassionate care!
+                        <FormattedMessage
+                            id="slogan"
+                            defaultMessage="Welcome to UmVet where pets meet compassionate care!"
+                        />
                     </div>
                     <div className={styles.btn_container}>
                         <Link to="/appointments">
                             <button type="button" className={styles.btn}>
-                                Make an appointment
+                                <FormattedMessage
+                                    id="appointmentBtn"
+                                    defaultMessage="Make an appointment"
+                                />
                             </button>
                         </Link>
                     </div>

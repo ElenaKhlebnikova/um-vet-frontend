@@ -1,30 +1,31 @@
 import { useEffect, useState } from 'react';
 import { getBlog } from '../api';
 
-const useBlog = (id) => {
+const useBlog = (locale, id) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const fetchData = (postId) => {
+
+    const fetchData = (lang, postId) => {
         if (postId) {
-            getBlog(postId)
+            getBlog(lang, postId)
                 .then((res) => res.json())
                 .then((resp) => {
-                    setData(resp.data.posts[0]);
+                    setData(resp.data.data[0]);
                     setLoading(false);
                 });
         } else {
-            getBlog()
+            getBlog(lang)
                 .then((res) => res.json())
                 .then((resp) => {
                     setLoading(false);
-                    setData(resp.data.posts);
+                    setData(resp.data.data);
                 });
         }
     };
 
     useEffect(() => {
-        fetchData(id);
-    }, [id]);
+        fetchData(locale, id);
+    }, [id, locale]);
     return { loading, data };
 };
 

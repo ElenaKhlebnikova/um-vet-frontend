@@ -1,30 +1,30 @@
 import { useEffect, useState } from 'react';
 import { getDoctors } from '../api';
 
-const useDoctors = (id) => {
+const useDoctors = (locale, id) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const fetchData = (doctorId) => {
+    const fetchData = (lang, doctorId) => {
         if (doctorId) {
-            getDoctors(doctorId)
+            getDoctors(lang, doctorId)
                 .then((res) => res.json())
                 .then((resp) => {
-                    setData(resp.data.doctors[0]);
+                    setData(resp.data.data[0]);
                     setLoading(false);
                 });
         } else {
-            getDoctors()
+            getDoctors(lang)
                 .then((res) => res.json())
                 .then((resp) => {
                     setLoading(false);
-                    setData(resp.data.doctors);
+                    setData(resp.data.data);
                 });
         }
     };
 
     useEffect(() => {
-        fetchData(id);
-    }, []);
+        fetchData(locale, id);
+    }, [locale]);
     return { data, loading };
 };
 

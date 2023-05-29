@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
 import { getServiceAndPrice } from '../api';
 
-const useServiceAndPrice = () => {
+const useServiceAndPrice = (locale) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const fetchData = () => {
-        getServiceAndPrice()
+        getServiceAndPrice(locale)
             .then((res) => res.json())
             .then((resp) => {
-                setData(resp.data.service);
+                setData(resp.data.data);
                 setLoading(false);
             });
     };
 
     useEffect(() => {
-        fetchData();
-    }, []);
+        fetchData(locale);
+    }, [locale]);
     return { data, loading };
 };
 

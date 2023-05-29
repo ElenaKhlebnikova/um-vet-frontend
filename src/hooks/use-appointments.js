@@ -9,14 +9,14 @@ const useAppointments = (id) => {
             getAppointments(doctorId)
                 .then((res) => res.json())
                 .then((resp) => {
-                    setData(resp.data.doctorsAppointments);
+                    setData(resp.data.data);
                     setLoading(false);
                 });
         } else {
             getAppointments()
                 .then((res) => res.json())
                 .then((resp) => {
-                    setData(resp.data.doctorsAppointments);
+                    setData(resp.data.data);
                     setLoading(false);
                 });
         }
