@@ -1,72 +1,66 @@
-clean this up with some helpful docs on the project
+# 🏥 UmVet
 
-# Getting Started with Create React App
+Welcome to UmVet repository! This is a web-application which allows users to view a UmVet hospital website, on which users can view doctors, leave feedback and make an appointment with them. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+The project is connected to the backend that I've built here: https://github.com/ElenaKhlebnikova/um-vet-backend
 
-In the project directory, you can run:
+## 🏗️ Tech Stack
 
-### `npm start`
+MeowFood is built with the following tech stack:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Technology                                                          | Usage                                                                                                          |
+| ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| React                                     | Main framework for building the application         |
+| React Router                                    |Navigation and routing within the application |
+| CSS Modules                           | For styling the components and prevent clashing of classes                                    |
+| ESLint/Prettier/Husky                                 | For linting/formatting/Git-hooks                                      |
+| Leaflet                    | To show an interactive map on the "Contact Us" page                                 |
+| Jest & RTL                                  | To write unit and integration tests                                          | 
+GitHub Projects | To organise the workflow
+                                                                                    
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 👀 Project Overview
 
-### `npm test`
+Click  [here]([https://frolicking-begonia-777545.netlify.app]) to view the project.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+![UmVet main](https://i.ibb.co/7vRLcZk/image.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![UmVet Slider German](https://i.ibb.co/ZYmnHK9/image.png)
+![UmVet contact page](https://i.ibb.co/7R6SbSy/image.png)
+![UmVet calendar](https://i.ibb.co/SV7khFf/image.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![UmVet Make an appointment form](https://i.ibb.co/Gv665Ls/image.png)
+![UmVet Error Page](https://i.ibb.co/278rkJX/image.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🐶 Features 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Fully responsive.
+2. Booking functionality: users can chose a doctor, date and time of their appointment. This data is stored on the backend of the project.
+3. Interactive calendar: users can choose a doctor, date and time of their appointment and also they see if the time is unavailable (if it has been booked)
+4. Leaving reviews on doctors and writing comments.
+5. Added internalization support for English and German. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📖What I have learnt
+1. Using React Router v6.11 to implement navigation between different pages.
+2. Using Leaflet to display an interactive map and also changing the default pin to a custom one.
+3. Connecting frontend and backend using `fetch` API and how to work with common HTTP methods.
+4. How to use RTL to write integration tests that span multiple components.
+5. Building custom hook to share form validation logic between components. 
+6. How to implement internalization
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🤯 What I struggled with
+1. Implementing calendar: it was hard to make days of the week appear like in a real calendar. For example, if today is Wed. Mon and Tue should be empty so that it's not possible to book for them and real dates align with days of the week. 
+2. New version of React Router. No comments. 
+3. Writing a lot of CSS.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
