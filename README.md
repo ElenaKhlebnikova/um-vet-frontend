@@ -40,10 +40,11 @@ Click  [here]([https://frolicking-begonia-777545.netlify.app]) to view the proje
 ## 🐶 Features 
 
 1. Fully responsive.
-2. Booking functionality: users can chose a doctor, date and time of their appointment. This data is stored on the backend of the project.
-3. Interactive calendar: users can choose a doctor, date and time of their appointment and also they see if the time is unavailable (if it has been booked)
+2. Booking functionality: users can choose a doctor, date and time of their appointment, then the appointment is stored on the backend.
+3. Interactive calendar: users can choose a doctor, date and time of their appointment and also they can see if the appointment time is unavailable (if it has been booked)
 4. Leaving reviews on doctors and writing comments.
-5. Added internalization support for English and German. 
+5. Added internalization support for English and German.
+6. Added custom hook which return data fetched from the backend and loading state. 
 
 
 
@@ -55,10 +56,10 @@ Click  [here]([https://frolicking-begonia-777545.netlify.app]) to view the proje
 5. Building custom hook to share form validation logic between components. 
 6. How to implement internalization
 
-## 🤯 What I struggled with
-1. Implementing calendar: it was hard to make days of the week appear like in a real calendar. For example, if today is Wed. Mon and Tue should be empty so that it's not possible to book for them and real dates align with days of the week. 
+## 😭 What I struggled with
+1. Implementing calendar: it was hard to make days of the week appear like in a real calendar. For example, if today is Wed. Mon and Tue should not be displayed as to not allow the user to book an appointment in the past. 
 2. New version of React Router. No comments. 
-3. Writing a lot of CSS.
+3. Writing a lot of custom CSS (in later projects I switched to Tailwind, which simplified the process).
 
 
 
