@@ -1,6 +1,6 @@
 # 🏥 UmVet
 
-Welcome to UmVet repository! This is a web-application which allows users to view a UmVet hospital website, on which users can view doctors, leave feedback and make an appointment with them. 
+Welcome to UmVet repository! This is a web-application which allows users to view UmVet vet clinic website, on which users can view doctors, make an appointment with them and leave feedback. 
 
 
 The project is connected to the backend that I've built here: https://github.com/ElenaKhlebnikova/um-vet-backend
@@ -17,7 +17,7 @@ MeowFood is built with the following tech stack:
 | ESLint/Prettier/Husky                                 | For linting/formatting/Git-hooks                                      |
 | Leaflet                    | To show an interactive map on the "Contact Us" page                                 |
 | Jest & RTL                                  | To write unit and integration tests                                          | 
-GitHub Projects | To organise the workflow
+GitHub Projects | To track proogress on the project 
                                                                                     
 
 ## 👀 Project Overview
