@@ -22,7 +22,7 @@ GitHub Projects | To track proogress on the project
 
 ## 👀 Project Overview
 
-Click  [here]([https://frolicking-begonia-777545.netlify.app]) to view the project.
+Click  [here](https://frolicking-begonia-777545.netlify.app) to view the project.
 
 
 ![UmVet main](https://i.ibb.co/7vRLcZk/image.png)
