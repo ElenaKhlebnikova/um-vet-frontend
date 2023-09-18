@@ -7,21 +7,22 @@ import useAppointments from '../../../../hooks/use-appointments';
 import Loader from '../../../../components/loader';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-function AppointmentForm({ doctor, hour, date }) {
+function AppointmentForm({ doctor, hour, date, locale }) {
     const [name, setName] = useState('');
     const [procedure, setProcedure] = useState('Routine check up');
     const [phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
     const [shown, setShown] = useState(true);
 
+    console.log(locale);
     const intl = useIntl();
     const { errorName, errorPhone, invalid } = useValidateAppointmentForm(
         name,
         phone
     );
 
-    const serviceAndPrice = useServiceAndPrice().data;
-    const { loading } = useServiceAndPrice();
+    const serviceAndPrice = useServiceAndPrice(locale).data;
+    const { loading } = useServiceAndPrice(locale);
 
     const { createAppointment } = useAppointments();
     const submitFormAndMakeAnAppointment = async (e) => {
@@ -162,6 +163,7 @@ AppointmentForm.propTypes = {
     doctor: PropTypes.string.isRequired,
     hour: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
+    locale: PropTypes.string.isRequired,
 };
 
 export default AppointmentForm;

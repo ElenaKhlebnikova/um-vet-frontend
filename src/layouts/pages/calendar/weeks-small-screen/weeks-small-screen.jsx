@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Day from './../day/day';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-function WeeksSmallScreen({ doctor }) {
+function WeeksSmallScreen({ doctor, locale }) {
     const [day, setDay] = useState('');
 
     return (
@@ -37,13 +37,18 @@ function WeeksSmallScreen({ doctor }) {
                         ))}
                 </select>
             </div>
-            <div>{day !== '' && <Day day={day} doctor={doctor} />}</div>
+            <div>
+                {day !== '' && (
+                    <Day locale={locale} day={day} doctor={doctor} />
+                )}
+            </div>
         </div>
     );
 }
 
 WeeksSmallScreen.propTypes = {
     doctor: PropTypes.string.isRequired,
+    locale: PropTypes.string.isRequired,
 };
 
 export default WeeksSmallScreen;
