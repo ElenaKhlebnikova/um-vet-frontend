@@ -4,6 +4,7 @@ import { getServiceAndPrice } from '../api';
 const useServiceAndPrice = (locale) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+
     const fetchData = () => {
         getServiceAndPrice(locale)
             .then((res) => res.json())

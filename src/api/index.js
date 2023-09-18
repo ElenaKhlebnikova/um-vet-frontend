@@ -1,5 +1,4 @@
-const URL = 'http://localhost:5000';
-
+const URL = 'https://nodejs-production-ee89.up.railway.app';
 const headers = {
     'Content-Type': 'application/json',
 };
